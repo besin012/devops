@@ -41,3 +41,7 @@ EOF!/bin/bash
 백업 스크립트
 사용법: ./backup.sh [백업할_폴더]
 ============================================
+
+# 로그 기록
+echo "$(date '+%Y-%m-%d %H:%M:%S') 백업 완료: $FILENAME" >> "$BACKUP_DIR/backup.log"
+echo "로그 기록 완료"
