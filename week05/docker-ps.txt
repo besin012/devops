@@ -1,0 +1,2 @@
+CONTAINER ID   IMAGE     COMMAND                   CREATED          STATUS          PORTS                                     NAMES
+4b988884e41e   nginx     "/docker-entrypoint.…"   15 seconds ago   Up 15 seconds   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   web
