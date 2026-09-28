@@ -40,36 +40,6 @@ docker exec nginx3 sh -c "sed -i 's/Welcome to nginx!/Welcome to nginx3!/g' /usr
 curl http://localhost:8091
 ```
 
-```html
-<!DOCTYPE html>
-<html>
-<head>
-<title>Welcome to nginx1!</title>
-<style>
-html { color-scheme: light dark; }
-body { width: 35em; margin: 0 auto;
-font-family: Tahoma, Verdana, Arial, sans-serif; }
-</style>
-</head>
-<body>
-<h1>Welcome to nginx1!</h1>
-<p>If you see this page, nginx is successfully installed and working.
-Further configuration is required for the web server, reverse proxy, 
-API gateway, load balancer, content cache, or other features.</p>
-
-<p>For online documentation and support please refer to
-<a href="https://nginx.org/">nginx.org</a>.<br/>
-To engage with the community please visit
-<a href="https://community.nginx.org/">community.nginx.org</a>.<br/>
-For enterprise grade support, professional services, additional 
-security features and capabilities please refer to
-<a href="https://f5.com/nginx">f5.com/nginx</a>.</p>
-
-<p><em>Thank you for using nginx.</em></p>
-</body>
-</html>
-```
-
 #### nginx2 — http://localhost:8092
 
 ![nginx2 브라우저 캡처](images/nginx2.png)
@@ -78,72 +48,12 @@ security features and capabilities please refer to
 curl http://localhost:8092
 ```
 
-```html
-<!DOCTYPE html>
-<html>
-<head>
-<title>Welcome to nginx2!</title>
-<style>
-html { color-scheme: light dark; }
-body { width: 35em; margin: 0 auto;
-font-family: Tahoma, Verdana, Arial, sans-serif; }
-</style>
-</head>
-<body>
-<h1>Welcome to nginx2!</h1>
-<p>If you see this page, nginx is successfully installed and working.
-Further configuration is required for the web server, reverse proxy, 
-API gateway, load balancer, content cache, or other features.</p>
-
-<p>For online documentation and support please refer to
-<a href="https://nginx.org/">nginx.org</a>.<br/>
-To engage with the community please visit
-<a href="https://community.nginx.org/">community.nginx.org</a>.<br/>
-For enterprise grade support, professional services, additional 
-security features and capabilities please refer to
-<a href="https://f5.com/nginx">f5.com/nginx</a>.</p>
-
-<p><em>Thank you for using nginx.</em></p>
-</body>
-</html>
-```
-
 #### nginx3 — http://localhost:8093
 
 ![nginx3 브라우저 캡처](images/nginx3.png)
 
 ```bash
 curl http://localhost:8093
-```
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-<title>Welcome to nginx3!</title>
-<style>
-html { color-scheme: light dark; }
-body { width: 35em; margin: 0 auto;
-font-family: Tahoma, Verdana, Arial, sans-serif; }
-</style>
-</head>
-<body>
-<h1>Welcome to nginx3!</h1>
-<p>If you see this page, nginx is successfully installed and working.
-Further configuration is required for the web server, reverse proxy, 
-API gateway, load balancer, content cache, or other features.</p>
-
-<p>For online documentation and support please refer to
-<a href="https://nginx.org/">nginx.org</a>.<br/>
-To engage with the community please visit
-<a href="https://community.nginx.org/">community.nginx.org</a>.<br/>
-For enterprise grade support, professional services, additional 
-security features and capabilities please refer to
-<a href="https://f5.com/nginx">f5.com/nginx</a>.</p>
-
-<p><em>Thank you for using nginx.</em></p>
-</body>
-</html>
 ```
 
 ### 4. 실행 중인 컨테이너 확인
