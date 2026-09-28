@@ -1,0 +1,8 @@
+nginx1
+nginx2
+nginx3
+web
+nginx1
+nginx2
+nginx3
+web
