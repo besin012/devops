@@ -1,0 +1,29 @@
+$ docker build --progress=plain -f '/Users/leejiyun/Desktop/2학년2학기/DevOps/devops/week06/Dockerfile.custom' -t guestbook:week06-custom .
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.custom
+#1 transferring dockerfile: 149B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/nearykam/inhatc-devops-guestbook:v1
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 120B done
+#3 DONE 0.0s
+
+#4 [1/1] FROM docker.io/nearykam/inhatc-devops-guestbook:v1@sha256:cb1c32d6acdeeef45be9c7de13087b677ffd48a3fd11a48c2e27b77f747e9519
+#4 resolve docker.io/nearykam/inhatc-devops-guestbook:v1@sha256:cb1c32d6acdeeef45be9c7de13087b677ffd48a3fd11a48c2e27b77f747e9519 done
+#4 DONE 0.0s
+
+#5 exporting to image
+#5 exporting layers done
+#5 exporting manifest sha256:53c56752a8a864824ea488ece7c20bc8d3da394756d6d28c673e6bac8ba5d6bd done
+#5 exporting config sha256:b5bc94dd9f4afa6616b4f421b58cfcc70eb9b5e44e28491b67c30a5bcbda284c done
+#5 exporting attestation manifest sha256:3f428b67a8f3b4440e881d5477f4fc079f0746f35444308fe0a5222e27151f34 done
+#5 exporting manifest list sha256:4fe5a1a67f1708199e73e657bf8cfbe83166c01cc6b299d2d25beb9afb2b0baf done
+#5 naming to docker.io/library/guestbook:week06-custom done
+#5 unpacking to docker.io/library/guestbook:week06-custom done
+#5 DONE 0.0s
+
+Exit code: 0

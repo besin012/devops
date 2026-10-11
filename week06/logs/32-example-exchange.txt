@@ -1,0 +1,4 @@
+$ docker run -d -p 127.0.0.1:19090:5000 --name w06-1011-friend nearykam/inhatc-devops-guestbook:v1
+f810a894c9a0f51bf8a4165f8fd7f96429c02e30ce96d0ae25a3853785897b6e
+
+Exit code: 0

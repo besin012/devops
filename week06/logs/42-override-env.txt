@@ -1,0 +1,4 @@
+$ docker exec w06-1011-custom printenv THEME_COLOR
+#16a34a
+
+Exit code: 0

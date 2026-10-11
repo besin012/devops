@@ -1,0 +1,4 @@
+$ curl -fsS http://127.0.0.1:18083/api/entries
+{"count":0,"entries":[]}
+
+Exit code: 0

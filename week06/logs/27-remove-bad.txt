@@ -1,0 +1,5 @@
+$ docker rmi guestbook:week06-bad
+Untagged: guestbook:week06-bad
+Deleted: sha256:e023a141ab822c1e226784c3b88fc0ec5016a18f422cbe256ca9885185c2213e
+
+Exit code: 0

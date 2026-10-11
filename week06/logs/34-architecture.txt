@@ -1,0 +1,4 @@
+$ docker image inspect guestbook:v2 --format '{{.Architecture}}'
+arm64
+
+Exit code: 0

@@ -1,0 +1,8 @@
+$ rg 'APP_TITLE|THEME_COLOR' app.py
+APP_TITLE = os.environ.get("APP_TITLE", "지윤의 방명록")
+THEME_COLOR = os.environ.get("THEME_COLOR", "#0B5ED7")
+        title=APP_TITLE,
+        color=THEME_COLOR,
+    print(f"[INFO] {APP_TITLE} 시작 — http://0.0.0.0:{PORT}", flush=True)
+
+Exit code: 0

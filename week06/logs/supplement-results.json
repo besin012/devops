@@ -1,0 +1,97 @@
+[
+  {
+    "step": "17-fallback-pull",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "17-fallback-run",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "17-fallback-health",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "18-demo-remove",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "18-env",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "18-env-check",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "18-logs",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "32-example-exchange",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "32-example-health",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "40-custom-build",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "40-custom-run",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "40-custom-env",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "41-history",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "42-custom-remove",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "42-override",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "42-override-env",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "47-before-restart",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "47-restart",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "47-after-restart",
+    "exit_code": 0,
+    "expected_failure": false
+  }
+]

@@ -1,0 +1,9 @@
+$ docker exec w06-1011-check ls /app
+Dockerfile
+Dockerfile.multistage
+LOCAL-GUIDE.md
+app.py
+requirements.txt
+templates
+
+Exit code: 0

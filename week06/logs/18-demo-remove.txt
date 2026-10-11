@@ -1,0 +1,4 @@
+$ docker rm -f w06-1011-demo
+w06-1011-demo
+
+Exit code: 0

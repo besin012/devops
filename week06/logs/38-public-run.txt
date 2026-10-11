@@ -1,0 +1,4 @@
+$ docker run -d -p 127.0.0.1:18085:5000 --name w06-1011-check ghcr.io/besin012/guestbook:v2
+b6365441f715ca5ae7e682986855c015f65f8c48dc364f167e0fc8c7a703216b
+
+Exit code: 0

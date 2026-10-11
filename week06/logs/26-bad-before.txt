@@ -1,0 +1,73 @@
+$ docker build --progress=plain -f Dockerfile.bad -t guestbook:week06-bad .
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.bad
+#1 transferring dockerfile: 146B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.12-slim
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 120B done
+#3 DONE 0.0s
+
+#4 [1/4] FROM docker.io/library/python:3.12-slim@sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f
+#4 resolve docker.io/library/python:3.12-slim@sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f done
+#4 DONE 0.0s
+
+#5 [2/4] WORKDIR /app
+#5 CACHED
+
+#6 [internal] load build context
+#6 transferring context: 417B done
+#6 DONE 0.0s
+
+#7 [3/4] COPY . .
+#7 DONE 0.0s
+
+#8 [4/4] RUN pip install -r requirements.txt
+#8 0.825 Collecting Flask==3.0.3 (from -r requirements.txt (line 1))
+#8 0.919   Downloading flask-3.0.3-py3-none-any.whl.metadata (3.2 kB)
+#8 0.958 Collecting redis==5.0.7 (from -r requirements.txt (line 2))
+#8 0.975   Downloading redis-5.0.7-py3-none-any.whl.metadata (9.3 kB)
+#8 1.019 Collecting Werkzeug>=3.0.0 (from Flask==3.0.3->-r requirements.txt (line 1))
+#8 1.038   Downloading werkzeug-3.1.9-py3-none-any.whl.metadata (4.1 kB)
+#8 1.063 Collecting Jinja2>=3.1.2 (from Flask==3.0.3->-r requirements.txt (line 1))
+#8 1.078   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+#8 1.102 Collecting itsdangerous>=2.1.2 (from Flask==3.0.3->-r requirements.txt (line 1))
+#8 1.116   Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+#8 1.146 Collecting click>=8.1.3 (from Flask==3.0.3->-r requirements.txt (line 1))
+#8 1.169   Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+#8 1.193 Collecting blinker>=1.6.2 (from Flask==3.0.3->-r requirements.txt (line 1))
+#8 1.208   Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+#8 1.270 Collecting MarkupSafe>=2.0 (from Jinja2>=3.1.2->Flask==3.0.3->-r requirements.txt (line 1))
+#8 1.287   Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (2.7 kB)
+#8 1.306 Downloading flask-3.0.3-py3-none-any.whl (101 kB)
+#8 1.343 Downloading redis-5.0.7-py3-none-any.whl (252 kB)
+#8 1.386 Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+#8 1.406 Downloading click-8.5.0-py3-none-any.whl (125 kB)
+#8 1.431 Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+#8 1.456 Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+#8 1.476 Downloading werkzeug-3.1.9-py3-none-any.whl (228 kB)
+#8 1.506 Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (24 kB)
+#8 1.523 Installing collected packages: redis, MarkupSafe, itsdangerous, click, blinker, Werkzeug, Jinja2, Flask
+#8 1.772 Successfully installed Flask-3.0.3 Jinja2-3.1.6 MarkupSafe-3.0.4 Werkzeug-3.1.9 blinker-1.9.0 click-8.5.0 itsdangerous-2.2.0 redis-5.0.7
+#8 1.772 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#8 1.861 
+#8 1.861 [notice] A new release of pip is available: 25.0.1 -> 26.2.1
+#8 1.861 [notice] To update, run: pip install --upgrade pip
+#8 DONE 1.9s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 0.5s done
+#9 exporting manifest sha256:ce6c702f44bf8caf0aefc0974b0e9ebadb4c45584d43928c69d6a29f81f9bef3 done
+#9 exporting config sha256:7d6a728ac1d6a441e6a4a4d5b972e01b954ad8a7c59ea47dcc62f45449acb8a5 done
+#9 exporting attestation manifest sha256:af52b665804ca3daeec0c5c7f158be1f6aeadd53008a0f11e70c86796931d95e done
+#9 exporting manifest list sha256:5350d979c48b68146d61b380f2a8022743fb6be68cfcfe2cd70f32852ff12b14 done
+#9 naming to docker.io/library/guestbook:week06-bad done
+#9 unpacking to docker.io/library/guestbook:week06-bad 0.1s done
+#9 DONE 0.6s
+
+Exit code: 0

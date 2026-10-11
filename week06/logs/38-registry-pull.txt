@@ -1,0 +1,5 @@
+$ docker pull ghcr.io/besin012/guestbook:v2
+Error response from daemon: error from registry: unauthorized
+unauthorized
+
+Exit code: 1

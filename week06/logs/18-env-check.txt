@@ -1,0 +1,5 @@
+$ docker exec w06-1011-demo printenv APP_TITLE THEME_COLOR
+지윤의 방명록
+#16a34a
+
+Exit code: 0

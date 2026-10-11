@@ -1,0 +1,4 @@
+$ docker restart w06-1011-custom
+w06-1011-custom
+
+Exit code: 0

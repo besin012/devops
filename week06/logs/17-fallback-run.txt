@@ -1,0 +1,4 @@
+$ docker run -d -p 127.0.0.1:18080:5000 --name w06-1011-demo nearykam/inhatc-devops-guestbook:v1
+4df138cb32ac9392e23e6596d443c29b9f478627bada71321a62bc7a914c742f
+
+Exit code: 0

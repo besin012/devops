@@ -22,4 +22,4 @@ docker build -t guestbook:v2 .
 
 수업 템플릿의 메모리 저장 방식을 사용하므로 컨테이너 재시작 시 글이 초기화됩니다.
 브라우저에서 테스트 메시지 등록 및 표시를 확인했습니다.
-레지스트리 푸시와 제출 문서 작성은 아직 진행하지 않았습니다.
+GHCR 업로드 완료: `ghcr.io/besin012/guestbook:v2`. 2026-10-11 Public 변경 및 pull/run 재검증 완료. 실습 기록은 상위 week06/README.md 참고.

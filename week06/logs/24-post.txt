@@ -1,0 +1,4 @@
+$ curl -fsS --data-urlencode 'name=지윤' --data-urlencode 'message=도커 이미지 실행 확인!' http://127.0.0.1:18084/add -o /dev/null; curl -fsS http://127.0.0.1:18084/api/entries
+{"count":1,"entries":[{"message":"\ub3c4\ucee4 \uc774\ubbf8\uc9c0 \uc2e4\ud589 \ud655\uc778!","name":"\uc9c0\uc724","time":"2026-10-11 10:33"}]}
+
+Exit code: 0

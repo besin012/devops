@@ -1,0 +1,122 @@
+[
+  {
+    "step": "06-latest-tag",
+    "exit_code": 1,
+    "expected_failure": true
+  },
+  {
+    "step": "17-pull",
+    "exit_code": 1,
+    "expected_failure": false
+  },
+  {
+    "step": "19-files",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "20-local-python",
+    "exit_code": 1,
+    "expected_failure": true
+  },
+  {
+    "step": "21-dockerfile",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "22-defaults",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "23-build-v1",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "24-images",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "24-run",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "24-post",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "25-rebuild-cached",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "25-code-change",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "26-bad-before",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "26-bad-after",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "27-remove-bad",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "30-existing-registry-tag",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "34-architecture",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "38-registry-pull",
+    "exit_code": 1,
+    "expected_failure": false
+  },
+  {
+    "step": "39-v2-build",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "39-v2-env",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "39-v2-env-check",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "46-fat",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "46-slim",
+    "exit_code": 0,
+    "expected_failure": false
+  },
+  {
+    "step": "46-size",
+    "exit_code": 0,
+    "expected_failure": false
+  }
+]

@@ -1,0 +1,6 @@
+$ docker image ls --filter 'reference=*guestbook*'
+IMAGE                 ID             DISK USAGE   CONTENT SIZE   EXTRA
+guestbook:v2          8115d87406d3        227MB         49.2MB   U    
+guestbook:week06-v1   5cc7f5fb1d4d        227MB         49.2MB   U    
+
+Exit code: 0

@@ -1,0 +1,4 @@
+$ docker run -d -p 127.0.0.1:18086:5000 --name w06-1011-gbv2 -e 'THEME_COLOR=#C6A15B' guestbook:v2
+4e5300f6e33bc9cd68faba21f82677334428ca81817511c0bd0398783b9357f1
+
+Exit code: 0

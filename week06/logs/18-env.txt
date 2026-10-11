@@ -1,0 +1,4 @@
+$ docker run -d -p 127.0.0.1:18080:5000 --name w06-1011-demo -e 'APP_TITLE=지윤의 방명록' -e 'THEME_COLOR=#16a34a' nearykam/inhatc-devops-guestbook:v1
+09c5363ba1354d0fe66a7c873087c3b726419e2c43a249d21f7ee1b3de80c7d8
+
+Exit code: 0

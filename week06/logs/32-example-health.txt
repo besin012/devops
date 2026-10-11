@@ -1,0 +1,4 @@
+$ curl -fsS http://127.0.0.1:19090/healthz
+{"hostname":"f810a894c9a0","status":"ok"}
+
+Exit code: 0

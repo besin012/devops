@@ -1,0 +1,86 @@
+$ docker build --progress=plain -f Dockerfile.multistage -t guestbook:week06-slim .
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.multistage
+#1 transferring dockerfile: 864B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.12-slim
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 120B done
+#3 DONE 0.0s
+
+#4 [builder 1/4] FROM docker.io/library/python:3.12-slim@sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f
+#4 resolve docker.io/library/python:3.12-slim@sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f done
+#4 DONE 0.0s
+
+#5 [builder 2/4] WORKDIR /app
+#5 CACHED
+
+#6 [internal] load build context
+#6 transferring context: 269B done
+#6 DONE 0.0s
+
+#7 [builder 3/4] COPY requirements.txt .
+#7 CACHED
+
+#8 [builder 4/4] RUN pip install --no-cache-dir --user -r requirements.txt
+#8 0.748 Collecting Flask==3.0.3 (from -r requirements.txt (line 1))
+#8 0.815   Downloading flask-3.0.3-py3-none-any.whl.metadata (3.2 kB)
+#8 0.851 Collecting redis==5.0.7 (from -r requirements.txt (line 2))
+#8 0.867   Downloading redis-5.0.7-py3-none-any.whl.metadata (9.3 kB)
+#8 0.901 Collecting Werkzeug>=3.0.0 (from Flask==3.0.3->-r requirements.txt (line 1))
+#8 0.925   Downloading werkzeug-3.1.9-py3-none-any.whl.metadata (4.1 kB)
+#8 0.947 Collecting Jinja2>=3.1.2 (from Flask==3.0.3->-r requirements.txt (line 1))
+#8 0.963   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+#8 0.997 Collecting itsdangerous>=2.1.2 (from Flask==3.0.3->-r requirements.txt (line 1))
+#8 1.013   Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+#8 1.042 Collecting click>=8.1.3 (from Flask==3.0.3->-r requirements.txt (line 1))
+#8 1.065   Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+#8 1.088 Collecting blinker>=1.6.2 (from Flask==3.0.3->-r requirements.txt (line 1))
+#8 1.106   Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+#8 1.176 Collecting MarkupSafe>=2.0 (from Jinja2>=3.1.2->Flask==3.0.3->-r requirements.txt (line 1))
+#8 1.193   Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (2.7 kB)
+#8 1.211 Downloading flask-3.0.3-py3-none-any.whl (101 kB)
+#8 1.250 Downloading redis-5.0.7-py3-none-any.whl (252 kB)
+#8 1.289 Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+#8 1.307 Downloading click-8.5.0-py3-none-any.whl (125 kB)
+#8 1.329 Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+#8 1.349 Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+#8 1.369 Downloading werkzeug-3.1.9-py3-none-any.whl (228 kB)
+#8 1.392 Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (24 kB)
+#8 1.412 Installing collected packages: redis, MarkupSafe, itsdangerous, click, blinker, Werkzeug, Jinja2, Flask
+#8 1.678   WARNING: The script flask is installed in '/root/.local/bin' which is not on PATH.
+#8 1.678   Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+#8 1.680 Successfully installed Flask-3.0.3 Jinja2-3.1.6 MarkupSafe-3.0.4 Werkzeug-3.1.9 blinker-1.9.0 click-8.5.0 itsdangerous-2.2.0 redis-5.0.7
+#8 1.680 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#8 1.763 
+#8 1.763 [notice] A new release of pip is available: 25.0.1 -> 26.2.1
+#8 1.763 [notice] To update, run: pip install --upgrade pip
+#8 DONE 1.8s
+
+#9 [stage-1 3/5] COPY --from=builder /root/.local /home/appuser/.local
+#9 DONE 0.0s
+
+#10 [stage-1 4/5] COPY . .
+#10 DONE 0.0s
+
+#11 [stage-1 5/5] RUN useradd -m appuser && chown -R appuser:appuser /home/appuser/.local
+#11 0.080 useradd: warning: the home directory /home/appuser already exists.
+#11 0.080 useradd: Not copying any file from skel directory into it.
+#11 DONE 0.2s
+
+#12 exporting to image
+#12 exporting layers
+#12 exporting layers 0.2s done
+#12 exporting manifest sha256:a05b0af7390a8f6871574f45863ad99fffd690dc61e1fd4b14c1ca69f12f4094 done
+#12 exporting config sha256:af78c97f9a7610b18a5eb88051ad150b6eb37e835a086c027e8a2c9305913006 done
+#12 exporting attestation manifest sha256:901391398c00619121f7744888e8df6aae7cfe08cb4620426e41c3b8eb8f4d65 done
+#12 exporting manifest list sha256:d314584417932d08890ef06fa513c6b4a778ecde4d079fcfbaeaff9f95c7f574 done
+#12 naming to docker.io/library/guestbook:week06-slim done
+#12 unpacking to docker.io/library/guestbook:week06-slim 0.1s done
+#12 DONE 0.3s
+
+Exit code: 0

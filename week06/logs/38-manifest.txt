@@ -1,0 +1,27 @@
+$ docker manifest inspect ghcr.io/besin012/guestbook:v2
+{
+   "schemaVersion": 2,
+   "mediaType": "application/vnd.oci.image.index.v1+json",
+   "manifests": [
+      {
+         "mediaType": "application/vnd.oci.image.manifest.v1+json",
+         "size": 2000,
+         "digest": "sha256:ba3b0bf116003700995f4880915979a7296281638acf1d9ec99e3ace8c150bcf",
+         "platform": {
+            "architecture": "arm64",
+            "os": "linux"
+         }
+      },
+      {
+         "mediaType": "application/vnd.oci.image.manifest.v1+json",
+         "size": 837,
+         "digest": "sha256:aa959c71a4e56e24e2053ff8f1d35e95b3f96b8ae49387baa51da135ce063652",
+         "platform": {
+            "architecture": "unknown",
+            "os": "unknown"
+         }
+      }
+   ]
+}
+
+Exit code: 0

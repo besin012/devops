@@ -1,0 +1,4 @@
+$ docker run -d -p 127.0.0.1:18083:5000 --name w06-1011-custom -e 'THEME_COLOR=#16a34a' guestbook:week06-custom
+109df4e3ca6441793da42d0ba211fb734d23b8aa780ef148a7069f1e90c130a4
+
+Exit code: 0

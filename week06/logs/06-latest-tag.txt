@@ -1,0 +1,4 @@
+$ docker pull ghcr.io/makyraen/inhatc-devops-guestbook:latest
+Error response from daemon: failed to resolve reference "ghcr.io/makyraen/inhatc-devops-guestbook:latest": ghcr.io/makyraen/inhatc-devops-guestbook:latest: not found
+
+Exit code: 1

@@ -1,0 +1,7 @@
+$ docker pull ghcr.io/besin012/guestbook:v2
+v2: Pulling from besin012/guestbook
+Digest: sha256:8115d87406d3fb5558f8b53973bf8f0857876c7540129f47bfe9c64703ca3267
+Status: Image is up to date for ghcr.io/besin012/guestbook:v2
+ghcr.io/besin012/guestbook:v2
+
+Exit code: 0

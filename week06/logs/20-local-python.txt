@@ -1,0 +1,7 @@
+$ python3 app.py
+Traceback (most recent call last):
+  File "/Users/leejiyun/Desktop/2학년2학기/DevOps/devops/week06/guestbook/app.py", line 8, in <module>
+    from flask import Flask, render_template, request, redirect, url_for, jsonify
+ModuleNotFoundError: No module named 'flask'
+
+Exit code: 1

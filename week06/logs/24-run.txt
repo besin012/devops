@@ -1,0 +1,4 @@
+$ docker run -d -p 127.0.0.1:18084:5000 --name w06-1011-gb guestbook:week06-v1
+231e72f4c26f9a13ce281eee2dff5edf4a7318bef05b43e0206ef00d95b4f72b
+
+Exit code: 0

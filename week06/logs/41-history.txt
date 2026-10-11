@@ -1,0 +1,24 @@
+$ docker history guestbook:week06-custom
+IMAGE          CREATED       CREATED BY                                      SIZE      COMMENT
+4fe5a1a67f17   9 days ago    ENV APP_TITLE=지윤의 방명록 THEME_COLOR=#7C9…   0B        buildkit.dockerfile.v0
+<missing>      9 days ago    CMD ["python" "app.py"]                         0B        buildkit.dockerfile.v0
+<missing>      9 days ago    EXPOSE [5000/tcp]                               0B        buildkit.dockerfile.v0
+<missing>      9 days ago    ENV APP_TITLE=InhaTC DevOps 방명록 THEME_COL…   0B        buildkit.dockerfile.v0
+<missing>      9 days ago    USER appuser                                    0B        buildkit.dockerfile.v0
+<missing>      9 days ago    RUN /bin/sh -c useradd -m appuser # buildkit    69.6kB    buildkit.dockerfile.v0
+<missing>      9 days ago    COPY . . # buildkit                             32.8kB    buildkit.dockerfile.v0
+<missing>      9 days ago    RUN /bin/sh -c pip install --no-cache-dir -r…   18.1MB    buildkit.dockerfile.v0
+<missing>      9 days ago    COPY requirements.txt . # buildkit              12.3kB    buildkit.dockerfile.v0
+<missing>      9 days ago    WORKDIR /app                                    8.19kB    buildkit.dockerfile.v0
+<missing>      3 weeks ago   CMD ["python3"]                                 0B        buildkit.dockerfile.v0
+<missing>      3 weeks ago   RUN /bin/sh -c set -eux;  for src in idle3 p…   16.4kB    buildkit.dockerfile.v0
+<missing>      3 weeks ago   RUN /bin/sh -c set -eux;   savedAptMark="$(a…   44.6MB    buildkit.dockerfile.v0
+<missing>      3 weeks ago   ENV PYTHON_SHA256=5c8462af5790baf43a321a1559…   0B        buildkit.dockerfile.v0
+<missing>      3 weeks ago   ENV PYTHON_VERSION=3.12.14                      0B        buildkit.dockerfile.v0
+<missing>      3 weeks ago   ENV GPG_KEY=7169605F62C751356D054A26A821E680…   0B        buildkit.dockerfile.v0
+<missing>      3 weeks ago   RUN /bin/sh -c set -eux;  apt-get update;  a…   4.99MB    buildkit.dockerfile.v0
+<missing>      3 weeks ago   ENV LANG=C.UTF-8                                0B        buildkit.dockerfile.v0
+<missing>      3 weeks ago   ENV PATH=/usr/local/bin:/usr/local/sbin:/usr…   0B        buildkit.dockerfile.v0
+<missing>      3 weeks ago   # debian.sh --arch 'arm64' out/ 'trixie' '@1…   110MB     debuerreotype 0.17
+
+Exit code: 0

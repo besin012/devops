@@ -1,0 +1,4 @@
+$ docker image inspect ghcr.io/besin012/guestbook:v2 --format '{{json .RepoDigests}}'
+["guestbook@sha256:8115d87406d3fb5558f8b53973bf8f0857876c7540129f47bfe9c64703ca3267","ghcr.io/besin012/guestbook@sha256:8115d87406d3fb5558f8b53973bf8f0857876c7540129f47bfe9c64703ca3267"]
+
+Exit code: 0

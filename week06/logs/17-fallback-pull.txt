@@ -1,0 +1,7 @@
+$ docker pull nearykam/inhatc-devops-guestbook:v1
+v1: Pulling from nearykam/inhatc-devops-guestbook
+Digest: sha256:cb1c32d6acdeeef45be9c7de13087b677ffd48a3fd11a48c2e27b77f747e9519
+Status: Image is up to date for nearykam/inhatc-devops-guestbook:v1
+docker.io/nearykam/inhatc-devops-guestbook:v1
+
+Exit code: 0

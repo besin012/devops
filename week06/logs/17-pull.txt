@@ -1,0 +1,5 @@
+$ docker pull ghcr.io/makyraen/inhatc-devops-guestbook:v1
+v1: Pulling from makyraen/inhatc-devops-guestbook
+failed to copy: httpReadSeeker: failed open: content at https://ghcr.io/v2/makyraen/inhatc-devops-guestbook/manifests/sha256:d5a29acadca7a5f1b7fd7049637d22c9045cf969dac66197ad37da24800fb747 not found: not found
+
+Exit code: 1
