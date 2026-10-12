@@ -1,0 +1,6 @@
+$ /Users/leejiyun/.docker/bin/docker --host unix:///Users/leejiyun/.docker/run/docker.sock compose ps
+NAME                  IMAGE             COMMAND                  SERVICE   CREATED          STATUS                    PORTS
+week07-lab1-redis-1   redis:7-alpine    "docker-entrypoint.s…"   redis     15 seconds ago   Up 11 seconds (healthy)   6379/tcp
+week07-lab1-web-1     week07-lab1-web   "python app.py"          web       15 seconds ago   Up 5 seconds (healthy)    127.0.0.1:8080->5000/tcp
+
+Exit code: 0

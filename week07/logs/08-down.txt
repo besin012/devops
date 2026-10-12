@@ -1,0 +1,13 @@
+$ unix:///Users/leejiyun/.docker/run/docker.sock compose -p week07-lab1 down
+ Container week07-lab1-web-1 Stopping
+ Container week07-lab1-web-1 Stopped
+ Container week07-lab1-web-1 Removing
+ Container week07-lab1-web-1 Removed
+ Container week07-lab1-redis-1 Stopping
+ Container week07-lab1-redis-1 Stopped
+ Container week07-lab1-redis-1 Removing
+ Container week07-lab1-redis-1 Removed
+ Network week07-lab1_default Removing
+ Network week07-lab1_default Removed
+
+Exit code: 0

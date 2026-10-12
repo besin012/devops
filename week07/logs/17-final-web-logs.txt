@@ -1,0 +1,14 @@
+$ unix:///Users/leejiyun/.docker/run/docker.sock compose -p week07-lab1 logs web
+web-1  | [INFO] Redis 연결 성공: redis:6379
+web-1  | [INFO] 지윤의 방명록 시작 — http://0.0.0.0:5000
+web-1  |  * Serving Flask app 'app'
+web-1  |  * Debug mode: off
+web-1  | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+web-1  |  * Running on all addresses (0.0.0.0)
+web-1  |  * Running on http://127.0.0.1:5000
+web-1  |  * Running on http://172.18.0.3:5000
+web-1  | [33mPress CTRL+C to quit[0m
+web-1  | 172.18.0.1 - - [12/Oct/2026 08:54:15] "GET /readyz HTTP/1.1" 200 -
+web-1  | 172.18.0.1 - - [12/Oct/2026 08:54:15] "GET /api/entries HTTP/1.1" 200 -
+
+Exit code: 0

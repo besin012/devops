@@ -1,0 +1,5 @@
+$ unix:///Users/leejiyun/.docker/run/docker.sock compose -p week07-lab1 restart web
+ Container week07-lab1-web-1 Restarting
+ Container week07-lab1-web-1 Started
+
+Exit code: 0

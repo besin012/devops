@@ -1,0 +1,4 @@
+$ unix:///Users/leejiyun/.docker/run/docker.sock compose -p week07-lab1 ps
+NAME      IMAGE     COMMAND   SERVICE   CREATED   STATUS    PORTS
+
+Exit code: 0

@@ -1,0 +1,136 @@
+$ unix:///Users/leejiyun/.docker/run/docker.sock compose -p week07-lab1 up -d --build
+ Image redis:7-alpine Pulling
+ c436aca17997 Pulling fs layer 0B
+ 6c159c167f77 Pulling fs layer 0B
+ 80825e26e4d6 Pulling fs layer 0B
+ 459f390c40ba Pulling fs layer 0B
+ 574676109835 Pulling fs layer 0B
+ 4f4fb700ef54 Pulling fs layer 0B
+ 248d4d6535e8 Pulling fs layer 0B
+ c436aca17997 Download complete 0B
+ 6c159c167f77 Download complete 0B
+ 4f4fb700ef54 Download complete 0B
+ 80825e26e4d6 Download complete 0B
+ 459f390c40ba Download complete 0B
+ 574676109835 Downloading 2.097MB
+ 574676109835 Downloading 3.146MB
+ 574676109835 Downloading 4.194MB
+ 574676109835 Downloading 5.243MB
+ 574676109835 Downloading 5.243MB
+ 574676109835 Downloading 5.243MB
+ 574676109835 Downloading 6.291MB
+ 574676109835 Downloading 6.291MB
+ 248d4d6535e8 Downloading 1.049MB
+ 181388ee13fc Download complete 0B
+ 574676109835 Downloading 7.34MB
+ 574676109835 Downloading 7.34MB
+ 248d4d6535e8 Downloading 1.049MB
+ 248d4d6535e8 Downloading 1.049MB
+ 574676109835 Downloading 7.34MB
+ 248d4d6535e8 Downloading 1.049MB
+ 574676109835 Downloading 8.389MB
+ 574676109835 Downloading 8.389MB
+ 248d4d6535e8 Downloading 1.049MB
+ 574676109835 Downloading 9.437MB
+ 248d4d6535e8 Downloading 1.049MB
+ 248d4d6535e8 Downloading 1.049MB
+ 574676109835 Downloading 9.437MB
+ 574676109835 Downloading 10.49MB
+ 248d4d6535e8 Downloading 2.097MB
+ 574676109835 Downloading 10.49MB
+ 248d4d6535e8 Downloading 2.097MB
+ 574676109835 Downloading 10.49MB
+ 248d4d6535e8 Downloading 2.097MB
+ 248d4d6535e8 Downloading 2.097MB
+ 574676109835 Downloading 11.53MB
+ 248d4d6535e8 Downloading 3.146MB
+ 574676109835 Downloading 11.53MB
+ 248d4d6535e8 Downloading 3.146MB
+ 574676109835 Downloading 12.06MB
+ 574676109835 Download complete 0B
+ 248d4d6535e8 Downloading 3.146MB
+ 248d4d6535e8 Downloading 3.146MB
+ 2b4e8b5dc339 Download complete 0B
+ 248d4d6535e8 Download complete 0B
+ 248d4d6535e8 Extracting 1B
+ 6c159c167f77 Extracting 1B
+ 80825e26e4d6 Pull complete 0B
+ 248d4d6535e8 Pull complete 0B
+ 6c159c167f77 Pull complete 0B
+ 574676109835 Extracting 1B
+ 574676109835 Extracting 1B
+ 574676109835 Pull complete 0B
+ c436aca17997 Pull complete 0B
+ 4f4fb700ef54 Pull complete 0B
+ 459f390c40ba Pull complete 0B
+ Image redis:7-alpine Pulled
+ Image week07-lab1-web Building
+#1 [internal] load local bake definitions
+#1 reading from stdin 628B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 530B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.12-slim
+#3 DONE 0.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 120B done
+#4 DONE 0.0s
+
+#5 [1/6] FROM docker.io/library/python:3.12-slim@sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f
+#5 resolve docker.io/library/python:3.12-slim@sha256:f77ac9e44ae96ef2c90b8053ea08c31f8be030f824196b0ae4db6d462c84e51f 0.0s done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 1.15kB done
+#6 DONE 0.0s
+
+#7 [3/6] COPY requirements.txt .
+#7 CACHED
+
+#8 [2/6] WORKDIR /app
+#8 CACHED
+
+#9 [4/6] RUN pip install --no-cache-dir -r requirements.txt
+#9 CACHED
+
+#10 [5/6] COPY . .
+#10 DONE 0.0s
+
+#11 [6/6] RUN useradd -m appuser
+#11 DONE 0.3s
+
+#12 exporting to image
+#12 exporting layers 0.0s done
+#12 exporting manifest sha256:082461c0ebad5630900c97067c9ee766ad2b9d2571134f0db9defe3311141c23 done
+#12 exporting config sha256:1726951bab4ad31db6cb6dffd040f85bbfb35f5710e76c1ed11b072bfc445c73 done
+#12 exporting attestation manifest sha256:2288cb3aac3536fe352da59890056dee08c0b0c629e40bc10d827f16bf7b5871 done
+#12 exporting manifest list sha256:4a31ebc2d9e4570f206e3daaa20696d8e597ffb560f038380c411cd00364c8af done
+#12 naming to docker.io/library/week07-lab1-web:latest done
+#12 unpacking to docker.io/library/week07-lab1-web:latest 0.0s done
+#12 DONE 0.0s
+
+#13 resolving provenance for metadata file
+#13 DONE 0.0s
+ Image week07-lab1-web Built
+ Network week07-lab1_default Creating
+ Volume week07-lab1_redis-data Creating
+ Volume week07-lab1_redis-data Creating
+ Network week07-lab1_default Creating
+ Volume week07-lab1_redis-data Created
+ Volume week07-lab1_redis-data Created
+ Network week07-lab1_default Created
+ Network week07-lab1_default Created
+ Container week07-lab1-redis-1 Creating
+ Container week07-lab1-redis-1 Created
+ Container week07-lab1-web-1 Creating
+ Container week07-lab1-web-1 Created
+ Container week07-lab1-redis-1 Starting
+ Container week07-lab1-redis-1 Started
+ Container week07-lab1-web-1 Starting
+ Container week07-lab1-web-1 Started
+
+Exit code: 0

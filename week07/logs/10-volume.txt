@@ -1,0 +1,19 @@
+$ unix:///Users/leejiyun/.docker/run/docker.sock volume inspect week07-lab1_redis-data
+[
+    {
+        "CreatedAt": "2026-10-12T08:54:02Z",
+        "Driver": "local",
+        "Labels": {
+            "com.docker.compose.config-hash": "1335e6370e599034a44d76e578bdf84535030550892f698edbddd502bf28439f",
+            "com.docker.compose.project": "week07-lab1",
+            "com.docker.compose.version": "5.5.1",
+            "com.docker.compose.volume": "redis-data"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/week07-lab1_redis-data/_data",
+        "Name": "week07-lab1_redis-data",
+        "Options": null,
+        "Scope": "local"
+    }
+]
+
+Exit code: 0

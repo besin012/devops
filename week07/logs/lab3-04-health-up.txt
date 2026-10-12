@@ -1,0 +1,17 @@
+$ /Users/leejiyun/.docker/bin/docker --host unix:///Users/leejiyun/.docker/run/docker.sock compose up -d --wait --wait-timeout 90
+ Container week07-lab1-redis-1 Recreate
+ Container week07-lab1-redis-1 Recreated
+ Container week07-lab1-web-1 Recreate
+ Container week07-lab1-web-1 Recreated
+ Container week07-lab1-redis-1 Starting
+ Container week07-lab1-redis-1 Started
+ Container week07-lab1-redis-1 Waiting
+ Container week07-lab1-redis-1 Healthy
+ Container week07-lab1-web-1 Starting
+ Container week07-lab1-web-1 Started
+ Container week07-lab1-web-1 Waiting
+ Container week07-lab1-redis-1 Waiting
+ Container week07-lab1-redis-1 Healthy
+ Container week07-lab1-web-1 Healthy
+
+Exit code: 0

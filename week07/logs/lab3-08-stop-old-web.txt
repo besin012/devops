@@ -1,0 +1,5 @@
+$ /Users/leejiyun/.docker/bin/docker --host unix:///Users/leejiyun/.docker/run/docker.sock compose stop web
+ Container week07-lab1-web-1 Stopping
+ Container week07-lab1-web-1 Stopped
+
+Exit code: 0

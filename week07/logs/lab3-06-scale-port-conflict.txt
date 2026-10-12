@@ -1,0 +1,13 @@
+$ /Users/leejiyun/.docker/bin/docker --host unix:///Users/leejiyun/.docker/run/docker.sock compose up -d --scale web=3
+ Container week07-lab1-web-1 Running
+ Container week07-lab1-redis-1 Running
+ Container week07-lab1-web-3 Creating
+ Container week07-lab1-web-2 Creating
+ Container week07-lab1-web-2 Created
+ Container week07-lab1-web-3 Created
+ Container week07-lab1-redis-1 Waiting
+ Container week07-lab1-redis-1 Healthy
+ Container week07-lab1-web-2 Starting
+Error response from daemon: failed to set up container networking: driver failed programming external connectivity on endpoint week07-lab1-web-2 (87a50eb2a0f4c5bf0da20bf0e28b49e4a2edd450a8f7b926eddf09afc203cbe4): Bind for 127.0.0.1:8080 failed: port is already allocated
+
+Exit code: 1

@@ -1,0 +1,4 @@
+$ /Users/leejiyun/.docker/bin/docker --host unix:///Users/leejiyun/.docker/run/docker.sock compose exec -T web python -c import socket; socket.create_connection(('redis',6379),2); print('TCP 연결 성공')
+TCP 연결 성공
+
+Exit code: 0

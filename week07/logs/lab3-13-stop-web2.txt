@@ -1,0 +1,4 @@
+$ /Users/leejiyun/.docker/bin/docker --host unix:///Users/leejiyun/.docker/run/docker.sock stop week07-lab1-web-2
+week07-lab1-web-2
+
+Exit code: 0

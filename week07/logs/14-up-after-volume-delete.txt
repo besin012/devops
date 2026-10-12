@@ -1,0 +1,19 @@
+$ unix:///Users/leejiyun/.docker/run/docker.sock compose -p week07-lab1 up -d
+ Network week07-lab1_default Creating
+ Volume week07-lab1_redis-data Creating
+ Volume week07-lab1_redis-data Creating
+ Network week07-lab1_default Creating
+ Volume week07-lab1_redis-data Created
+ Volume week07-lab1_redis-data Created
+ Network week07-lab1_default Created
+ Network week07-lab1_default Created
+ Container week07-lab1-redis-1 Creating
+ Container week07-lab1-redis-1 Created
+ Container week07-lab1-web-1 Creating
+ Container week07-lab1-web-1 Created
+ Container week07-lab1-redis-1 Starting
+ Container week07-lab1-redis-1 Started
+ Container week07-lab1-web-1 Starting
+ Container week07-lab1-web-1 Started
+
+Exit code: 0

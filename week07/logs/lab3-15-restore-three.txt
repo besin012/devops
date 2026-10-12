@@ -1,0 +1,27 @@
+$ /Users/leejiyun/.docker/bin/docker --host unix:///Users/leejiyun/.docker/run/docker.sock compose up -d --scale web=3 --wait --wait-timeout 90
+ Container week07-lab1-web-1 Running
+ Container week07-lab1-web-3 Running
+ Container week07-lab1-redis-1 Running
+ Container week07-lab1-nginx-1 Running
+ Container week07-lab1-redis-1 Waiting
+ Container week07-lab1-redis-1 Healthy
+ Container week07-lab1-web-2 Starting
+ Container week07-lab1-web-2 Started
+ Container week07-lab1-web-2 Waiting
+ Container week07-lab1-web-3 Waiting
+ Container week07-lab1-web-1 Waiting
+ Container week07-lab1-web-2 Healthy
+ Container week07-lab1-web-3 Healthy
+ Container week07-lab1-web-1 Healthy
+ Container week07-lab1-web-2 Waiting
+ Container week07-lab1-web-3 Waiting
+ Container week07-lab1-web-1 Waiting
+ Container week07-lab1-redis-1 Waiting
+ Container week07-lab1-nginx-1 Waiting
+ Container week07-lab1-redis-1 Healthy
+ Container week07-lab1-nginx-1 Healthy
+ Container week07-lab1-web-2 Healthy
+ Container week07-lab1-web-3 Healthy
+ Container week07-lab1-web-1 Healthy
+
+Exit code: 0

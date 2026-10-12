@@ -1,0 +1,3 @@
+$ /Users/leejiyun/.docker/bin/docker --host unix:///Users/leejiyun/.docker/run/docker.sock compose config --quiet
+
+Exit code: 0

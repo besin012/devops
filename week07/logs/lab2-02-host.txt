@@ -1,0 +1,13 @@
+$ python3 -c import socket; socket.create_connection(('127.0.0.1', 6379), timeout=2)
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import socket; socket.create_connection(('127.0.0.1', 6379), timeout=2)
+                   ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/socket.py", line 864, in create_connection
+    raise exceptions[0]
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/socket.py", line 849, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [Errno 61] Connection refused
+
+Exit code: 1

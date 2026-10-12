@@ -1,0 +1,95 @@
+$ /Users/leejiyun/.docker/bin/docker --host unix:///Users/leejiyun/.docker/run/docker.sock compose up -d --scale web=3 --wait --wait-timeout 120
+ Image nginx:alpine Pulling
+ 1efec2485f45 Pulling fs layer 0B
+ bc862a9910f5 Pulling fs layer 0B
+ 943c389642fa Pulling fs layer 0B
+ ccea4a153c59 Pulling fs layer 0B
+ a9986cd6f37d Pulling fs layer 0B
+ d766d06974fa Pulling fs layer 0B
+ 858f76146c12 Pulling fs layer 0B
+ 766d3311d5df Pulling fs layer 0B
+ bc862a9910f5 Download complete 0B
+ 943c389642fa Download complete 0B
+ 766d3311d5df Download complete 0B
+ 1efec2485f45 Downloading 2.097MB
+ d766d06974fa Download complete 0B
+ 1efec2485f45 Downloading 6.291MB
+ 1efec2485f45 Downloading 6.291MB
+ ccea4a153c59 Downloading 964B
+ 1efec2485f45 Downloading 7.34MB
+ ccea4a153c59 Download complete 0B
+ 1efec2485f45 Downloading 9.437MB
+ 1efec2485f45 Downloading 9.437MB
+ 1efec2485f45 Downloading 10.49MB
+ 1efec2485f45 Downloading 11.53MB
+ 858f76146c12 Downloading 1.049MB
+ 1efec2485f45 Downloading 12.58MB
+ 858f76146c12 Downloading 1.049MB
+ 1efec2485f45 Downloading 13.63MB
+ 858f76146c12 Downloading 1.049MB
+ 1efec2485f45 Downloading 14.68MB
+ 858f76146c12 Downloading 1.049MB
+ 858f76146c12 Download complete 0B
+ 1efec2485f45 Downloading 15.73MB
+ 1efec2485f45 Downloading 16.78MB
+ 1efec2485f45 Downloading 16.78MB
+ 1efec2485f45 Downloading 17.83MB
+ 1efec2485f45 Download complete 0B
+ a9986cd6f37d Downloading 1.049MB
+ dffc70821449 Download complete 0B
+ a9986cd6f37d Downloading 1.049MB
+ a9986cd6f37d Downloading 1.049MB
+ a9986cd6f37d Downloading 2.097MB
+ 6c2852a60c45 Download complete 0B
+ a9986cd6f37d Downloading 2.097MB
+ a9986cd6f37d Downloading 3.146MB
+ a9986cd6f37d Download complete 0B
+ a9986cd6f37d Extracting 1B
+ bc862a9910f5 Pull complete 0B
+ 943c389642fa Pull complete 0B
+ 766d3311d5df Pull complete 0B
+ ccea4a153c59 Pull complete 0B
+ 858f76146c12 Pull complete 0B
+ a9986cd6f37d Pull complete 0B
+ d766d06974fa Pull complete 0B
+ 1efec2485f45 Extracting 1B
+ 1efec2485f45 Extracting 1B
+ 1efec2485f45 Pull complete 0B
+ Image nginx:alpine Pulled
+ Container week07-lab1-redis-1 Running
+ Container week07-lab1-web-2 Creating
+ Container week07-lab1-web-1 Recreate
+ Container week07-lab1-web-3 Creating
+ Container week07-lab1-web-3 Created
+ Container week07-lab1-nginx-1 Creating
+ Container week07-lab1-web-2 Created
+ Container week07-lab1-web-1 Recreated
+ Container week07-lab1-nginx-1 Created
+ Container week07-lab1-redis-1 Waiting
+ Container week07-lab1-redis-1 Healthy
+ Container week07-lab1-web-2 Starting
+ Container week07-lab1-web-2 Started
+ Container week07-lab1-web-3 Starting
+ Container week07-lab1-web-3 Started
+ Container week07-lab1-web-1 Starting
+ Container week07-lab1-web-1 Started
+ Container week07-lab1-web-2 Waiting
+ Container week07-lab1-web-3 Waiting
+ Container week07-lab1-web-1 Waiting
+ Container week07-lab1-web-2 Healthy
+ Container week07-lab1-web-3 Healthy
+ Container week07-lab1-web-1 Healthy
+ Container week07-lab1-nginx-1 Starting
+ Container week07-lab1-nginx-1 Started
+ Container week07-lab1-web-2 Waiting
+ Container week07-lab1-web-3 Waiting
+ Container week07-lab1-web-1 Waiting
+ Container week07-lab1-redis-1 Waiting
+ Container week07-lab1-nginx-1 Waiting
+ Container week07-lab1-redis-1 Healthy
+ Container week07-lab1-nginx-1 Healthy
+ Container week07-lab1-web-2 Healthy
+ Container week07-lab1-web-3 Healthy
+ Container week07-lab1-web-1 Healthy
+
+Exit code: 0

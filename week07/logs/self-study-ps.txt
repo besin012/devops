@@ -1,0 +1,7 @@
+$ docker compose ps
+NAME                  IMAGE             COMMAND                  SERVICE   CREATED             STATUS                       PORTS
+week07-lab1-nginx-1   nginx:alpine      "/docker-entrypoint.…"   nginx     About an hour ago   Up About an hour             127.0.0.1:8080->80/tcp
+week07-lab1-redis-1   redis:7-alpine    "docker-entrypoint.s…"   redis     About an hour ago   Up About an hour (healthy)   6379/tcp
+week07-lab1-web-1     week07-lab1-web   "python app.py"          web       50 minutes ago      Up 50 minutes (healthy)      5000/tcp
+week07-lab1-web-2     week07-lab1-web   "python app.py"          web       50 minutes ago      Up 50 minutes (healthy)      5000/tcp
+week07-lab1-web-3     week07-lab1-web   "python app.py"          web       50 minutes ago      Up 50 minutes (healthy)      5000/tcp
