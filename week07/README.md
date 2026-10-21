@@ -1,111 +1,98 @@
 # 7주차 - Docker Compose
 
-6주차 방명록에 Redis를 연결하고 nginx를 앞에 두어 웹 컨테이너를 3개로 늘렸다.
-소스는 [week06/guestbook](../week06/guestbook/)을 그대로 사용했다.
-실습일은 2026년 10월 12일이다.
+방명록에 Redis를 연결하고 nginx를 통해 웹 컨테이너 3개로 요청을 나눴다.
+소스는 [week06/guestbook](../week06/guestbook/)을 이어서 사용했다.
 
-## 실행
+## 1. docker compose ps 결과
 
 ```bash
 cd week06/guestbook
-cp .env.example .env
-# .env에 사용할 Redis 비밀번호 입력
-docker compose config -q
-docker compose up -d --build --scale web=3
 docker compose ps
 ```
 
-저장소 루트에서 실행하는 명령이다. 기존 .env가 있다면 복사해서 덮어쓰지 않는다.
-접속 주소는 http://localhost:8080 이다.
+저장소 루트에서 이동해 확인했다. 아래는 2026년 10월 21일 실행 결과다.
 
-## 실습 1 - Redis와 볼륨
+```text
+NAME                  IMAGE             COMMAND                  SERVICE   CREATED      STATUS                PORTS
+week07-lab1-nginx-1   nginx:alpine      "/docker-entrypoint.…"   nginx     9 days ago   Up 9 days             127.0.0.1:8080->80/tcp
+week07-lab1-redis-1   redis:7-alpine    "docker-entrypoint.s…"   redis     9 days ago   Up 9 days (healthy)   6379/tcp
+week07-lab1-web-1     week07-lab1-web   "python app.py"          web       9 days ago   Up 9 days (healthy)   5000/tcp
+week07-lab1-web-2     week07-lab1-web   "python app.py"          web       9 days ago   Up 9 days (healthy)   5000/tcp
+week07-lab1-web-3     week07-lab1-web   "python app.py"          web       9 days ago   Up 9 days (healthy)   5000/tcp
+```
 
-메모리에 저장하던 글을 Redis에 저장하도록 바꿨다.
-웹에서 `REDIS_HOST=redis`를 사용해 Redis에 연결한다.
+nginx 1개, Redis 1개, web 3개가 실행 중이다.
+Redis와 web은 모두 healthy였다. Redis가 준비된 뒤 web이 시작되도록 healthcheck와 depends_on을 설정했다.
 
-| 작업 | 글 개수 |
-|---|---|
-| 테스트 글 등록 | 3 |
-| web 재시작 | 3개 유지 |
-| down 후 up | 3개 유지 |
-| down -v 후 up | 0개 |
+[실행 결과 원문](logs/compose-ps-2026-10-21.txt)
 
-`down`은 컨테이너와 네트워크를 지우지만 볼륨은 남긴다.
-`down -v`는 볼륨까지 지워서 데이터도 사라진다. 이 비교는 실습용 볼륨으로 진행했다.
+## 2. scale 후 웹 컨테이너 확인
 
-[down 후 결과](logs/12-after-down-up.json) / [down -v 후 결과](logs/15-after-down-v-up.json)
+```bash
+docker compose up -d --scale web=3
+```
 
-## 실습 2 - 네트워크
-
-- Mac에서 `127.0.0.1:6379`에 연결하면 Connection refused가 나왔다.
-- web 안에서는 `redis` 이름으로 IP를 찾고 TCP 연결에 성공했다.
-
-Redis에 ports를 지정하지 않아 외부에서는 접근할 수 없지만, 같은 Compose 네트워크 안에서는 서비스 이름으로 연결할 수 있다.
-
-[호스트 연결 결과](logs/lab2-02-host.txt) / [컨테이너 내부 연결 결과](logs/lab2-04-tcp.txt)
-
-## 실습 3 - 설정 정리와 웹 확장
-
-### .env
-
-비밀번호를 compose.yaml에서 .env로 옮겼다.
-.env는 실제 값이 들어가므로 Git에 올리지 않고, .env.example에는 작성 양식만 넣었다.
-.gitignore는 Git에서 제외하고, .dockerignore는 이미지 안에 복사되지 않게 한다. 암호화하는 기능은 아니다.
-
-### healthcheck
-
-Redis와 web에 상태 확인을 추가했다.
-단순 depends_on은 시작 순서만 정하므로, Redis가 healthy가 된 뒤 web을 시작하도록 바꿨다.
-web은 `/readyz`로 Redis 연결 상태까지 확인한다.
-
-### nginx와 scale
-
-처음에는 web 3개가 모두 8080 포트를 쓰려고 해서 충돌했다.
-nginx만 8080을 사용하고 web은 내부 5000 포트로 연결하도록 바꿨다.
+처음에는 web마다 8080 포트를 사용해서 충돌했다.
+nginx만 8080을 사용하고 web은 내부 5000 포트를 사용하도록 바꿨다.
 
 ```text
 브라우저 :8080 → nginx → web 3개 → Redis 1개
 ```
 
-세 웹은 같은 Redis를 사용해서 어느 웹으로 연결되어도 글 목록이 같았다.
-web 하나를 직접 중지했을 때 자동으로 다시 켜지지는 않았다.
-`docker compose up -d --scale web=3`으로 다시 3개를 실행했다.
+http://localhost:8080/healthz 를 새로고침하면서 확인했다.
+요청마다 아래처럼 hostname이 달라져 서로 다른 웹 컨테이너가 응답하는 것을 확인했다.
+메인 화면은 hostname을 표시하지 않아 상태 확인 주소로 캡처했다.
 
-### config와 watch
+### 응답 1: `ff8eef99ba3f`
 
-`docker compose config -q`로 설정 검사를 했다.
-비밀번호를 빈 값으로 실행하면 필수 값 오류로 중단되는 것도 확인했다.
+![웹 컨테이너 응답 1](images/web-host-1.png)
 
-watch 설정은 app.py와 templates 변경 시 rebuild하도록 작성했다.
-다만 Watch enabled가 표시된 뒤에도 문구 변경이 반영되지 않아 수동으로 다시 빌드했다.
-자동 반영은 아직 성공 확인을 못 했다.
+### 응답 2: `380696d68b1e`
 
-```bash
-docker compose watch --no-up
-```
+![웹 컨테이너 응답 2](images/web-host-2.png)
 
-## 실행 결과
+### 응답 3: `2a151a9c02b7`
 
-10월 12일 기록이다. nginx 1개, web 3개, Redis 1개가 실행됐고 web과 Redis는 healthy였다.
+![웹 컨테이너 응답 3](images/web-host-3.png)
 
-```text
-week07-lab1-nginx-1   Up       127.0.0.1:8080->80/tcp
-week07-lab1-redis-1   healthy  6379/tcp
-week07-lab1-web-1     healthy  5000/tcp
-week07-lab1-web-2     healthy  5000/tcp
-week07-lab1-web-3     healthy  5000/tcp
-```
+세 웹은 같은 Redis를 사용하므로 어느 웹이 응답해도 글 목록은 같았다.
+[반복 요청 기록](logs/self-study-hostnames.json)
 
-[원본 compose ps 출력](logs/self-study-ps.txt)
+## 3. down과 down -v 차이
 
-`/healthz`를 24번 요청했을 때 확인한 hostname은 아래와 같다.
+테스트 글 3개를 등록하고 비교했다. 아래 결과는 10월 12일 실습 기록이다.
 
-- `2a151a9c02b7`
-- `380696d68b1e`
-- `ff8eef99ba3f`
+| 실행 순서 | 볼륨 | 글 개수 |
+|---|---|---|
+| 글 등록 → restart web | 유지 | 3개 유지 |
+| down → up -d | 유지 | 3개 유지 |
+| down -v → up -d | 삭제 후 새로 생성 | 0개 |
 
-[응답 기록](logs/self-study-hostnames.json)
+`down`은 컨테이너와 네트워크만 지우고 볼륨은 남긴다.
+다시 실행하면 기존 Redis 데이터를 읽어서 글이 유지됐다.
+`down -v`는 볼륨까지 지워서 다시 실행했을 때 글이 사라졌다.
+데이터를 유지해야 할 때는 `-v`를 붙이지 않아야 한다.
 
-호스트명 화면 캡처는 아직 추가하지 못했다.
-메인 화면에는 hostname이 없으므로 http://localhost:8080/healthz 에서 확인할 수 있다.
-나머지 명령어와 결과는 [logs](logs/)에 저장했다.
+[down 후 결과](logs/12-after-down-up.json) / [down -v 후 결과](logs/15-after-down-v-up.json)
+
+## 4. .env를 Git에 올리지 않는 이유
+
+.env에는 Redis 비밀번호 같은 실제 설정값이 들어 있다.
+공개 저장소에 올리면 다른 사람도 볼 수 있고, 나중에 파일에서 지워도 Git 이력에 남을 수 있다.
+
+- compose.yaml: 실제 비밀번호 대신 `${REDIS_PASSWORD}`를 사용한다.
+- .env: 내 컴퓨터에만 두고 .gitignore에 추가했다.
+- .env.example: 비밀번호 대신 작성 양식만 공유한다.
+- .dockerignore: .env가 이미지에 복사되지 않도록 제외한다.
+
+.gitignore는 암호화가 아니라 Git에서 제외하는 설정이다.
+[.env 제외 확인](logs/lab3-02-env-ignored.txt)
+
+## 추가 메모
+
+- 호스트에서는 Redis 6379 포트에 접속할 수 없지만 web 안에서는 redis라는 서비스 이름으로 연결됐다.
+- web 하나를 직접 중지해도 자동으로 다시 켜지지 않았다. `docker compose up -d --scale web=3`으로 복구했다.
+- `docker compose config -q`로 설정 검사를 했다. 비밀번호가 비어 있으면 오류가 났다.
+- watch 설정은 저장했지만 자동 재빌드는 성공 확인을 못 했다. 문구 변경은 수동 재빌드로 반영했다.
+
+나머지 실행 결과는 [logs](logs/)에 있다.
