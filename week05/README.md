@@ -1,12 +1,7 @@
-# 5주차- Docker
-- [x] `docker --version` 정상 출력
-- [x] `docker run hello-world` 실행
-- [x] `web`이라는 이름으로 nginx 컨테이너 실행
-- [x] 브라우저 또는 `curl`로 `http://localhost:8080` 응답 확인
-- [x] `docker ps`에서 실행 상태를 확인
-- [x] 실습 결과를 `week05/README.md`에 기록
-- [x] 수업에서 만든 컨테이너 정리
-- [x] 혼자서 해보기 완료
+# 5주차 - Docker
+
+hello-world로 Docker 실행을 확인하고 nginx 컨테이너 3개를 각각 다른 포트로 띄웠다.
+페이지 문구를 바꿔서 각 컨테이너를 구분했다.
 
 ### 1. 컨테이너 실행
 

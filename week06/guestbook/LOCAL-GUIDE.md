@@ -1,25 +1,7 @@
-# 지윤의 방명록
+# 실행 메모
 
-수업 템플릿의 제목, 테마 색상, 안내 문구, 입력 폼과 글 목록 배치를 수정했습니다.
+- Compose 버전: http://localhost:8080 (Redis 사용)
+- 단독 Docker 버전: http://localhost:8081 (Redis 설정이 없으면 메모리 사용)
 
-## 실행
-
-현재 컨테이너: `jiyun-guestbook`, 이미지: `guestbook:v2`
-
-브라우저: http://localhost:8081
-
-이미 만들어진 컨테이너를 다시 켜려면:
-
-```bash
-docker start jiyun-guestbook
-```
-
-코드를 수정한 뒤에는 이 폴더에서 다시 빌드하고 컨테이너를 재생성해야 반영됩니다.
-
-```bash
-docker build -t guestbook:v2 .
-```
-
-수업 템플릿의 메모리 저장 방식을 사용하므로 컨테이너 재시작 시 글이 초기화됩니다.
-브라우저에서 테스트 메시지 등록 및 표시를 확인했습니다.
-GHCR 업로드 완료: `ghcr.io/besin012/guestbook:v2`. 2026-10-11 Public 변경 및 pull/run 재검증 완료. 실습 기록은 상위 week06/README.md 참고.
+실행 방법은 [README](README.md)에 정리했다.
+컨테이너가 중지되어 있으면 페이지에 접속할 수 없다.
