@@ -83,8 +83,3 @@ cat week06/logs/38-public-pull.txt
 `scripts/run_lab.py`와 `continue_lab.py`는 이번 실습에 사용한 실행 스크립트이다.
 동일한 이름의 실습 컨테이너가 존재하면 run이 실패하므로, 재실행 전 자신의 실습 컨테이너 상태를 확인한다.
 기존 `jiyun-guestbook`은 삭제하지 않는다.
-
-## PPT 제출
-
-`PPT-CONTENTS.md`에 필수 항목과 슬라이드별 캡처/설명을 정리했다.
-업로드는 2026-10-11 23:59 이전 LMS에 해야 한다. GitHub 푸시는 LMS 제출을 대신하지 않는다.
