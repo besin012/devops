@@ -1,0 +1,5 @@
+$ kubectl -n week10 get deployment guestbook
+NAME        READY   UP-TO-DATE   AVAILABLE   AGE
+guestbook   2/2     2            2           68s
+
+Exit code: 0

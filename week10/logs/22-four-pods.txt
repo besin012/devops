@@ -1,0 +1,8 @@
+$ kubectl -n week10 get pods
+NAME                        READY   STATUS    RESTARTS   AGE
+guestbook-77d66695b-bq8v2   1/1     Running   0          1s
+guestbook-77d66695b-jrg4d   1/1     Running   0          1s
+guestbook-77d66695b-jxfzh   1/1     Running   0          32s
+guestbook-77d66695b-kc7l6   1/1     Running   0          32s
+
+Exit code: 0

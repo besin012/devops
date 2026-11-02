@@ -1,0 +1,6 @@
+$ kubectl -n week10 get pods --show-labels
+NAME                        READY   STATUS    RESTARTS   AGE   LABELS
+guestbook-77d66695b-5wxnl   1/1     Running   0          31s   app=guestbook,pod-template-hash=77d66695b
+guestbook-77d66695b-vqf7d   1/1     Running   0          33s   app=guestbook,pod-template-hash=77d66695b
+
+Exit code: 0

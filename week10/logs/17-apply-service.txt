@@ -1,0 +1,4 @@
+$ kubectl -n week10 apply -f week06/guestbook/k8s/service.yaml
+service/guestbook created
+
+Exit code: 0

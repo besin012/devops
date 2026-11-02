@@ -1,0 +1,4 @@
+$ kubectl -n week10 scale deployment guestbook --replicas=2
+deployment.apps/guestbook scaled
+
+Exit code: 0

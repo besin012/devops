@@ -1,0 +1,5 @@
+$ kubectl -n week10 wait --for=condition=Ready pods -l app=guestbook --timeout=120s
+pod/guestbook-77d66695b-jxfzh condition met
+pod/guestbook-77d66695b-kc7l6 condition met
+
+Exit code: 0

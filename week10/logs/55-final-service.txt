@@ -1,0 +1,5 @@
+$ kubectl -n week10 get svc guestbook
+NAME        TYPE       CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
+guestbook   NodePort   10.96.35.11   <none>        80:30080/TCP   43s
+
+Exit code: 0

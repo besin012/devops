@@ -1,0 +1,6 @@
+$ kubectl -n week10 get rs
+NAME                   DESIRED   CURRENT   READY   AGE
+guestbook-69cc96c5d8   2         2         2       4s
+guestbook-77d66695b    0         0         0       74s
+
+Exit code: 0

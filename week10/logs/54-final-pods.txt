@@ -1,0 +1,9 @@
+$ kubectl -n week10 get pods -l app=guestbook -o wide
+NAME                        READY   STATUS    RESTARTS   AGE   IP            NODE                          NOMINATED NODE   READINESS GATES
+guestbook-77d66695b-7gjnh   1/1     Running   0          32s   10.244.0.31   devops-week09-control-plane   <none>           <none>
+guestbook-77d66695b-ct42w   1/1     Running   0          32s   10.244.0.32   devops-week09-control-plane   <none>           <none>
+guestbook-77d66695b-lphxf   1/1     Running   0          1s    10.244.0.34   devops-week09-control-plane   <none>           <none>
+guestbook-77d66695b-wg2vr   1/1     Running   0          1s    10.244.0.33   devops-week09-control-plane   <none>           <none>
+guestbook-77d66695b-xgsws   1/1     Running   0          1s    10.244.0.35   devops-week09-control-plane   <none>           <none>
+
+Exit code: 0

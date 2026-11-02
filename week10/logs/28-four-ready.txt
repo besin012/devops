@@ -1,0 +1,6 @@
+$ kubectl -n week10 rollout status deployment/guestbook --timeout=120s
+Waiting for deployment "guestbook" rollout to finish: 2 of 4 updated replicas are available...
+Waiting for deployment "guestbook" rollout to finish: 3 of 4 updated replicas are available...
+deployment "guestbook" successfully rolled out
+
+Exit code: 0

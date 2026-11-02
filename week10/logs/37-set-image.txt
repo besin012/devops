@@ -1,0 +1,4 @@
+$ kubectl -n week10 set image deployment/guestbook web=guestbook:week10-v2
+deployment.apps/guestbook image updated
+
+Exit code: 0

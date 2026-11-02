@@ -1,0 +1,4 @@
+$ kubectl -n week10 exec deployment/guestbook -- python -c import urllib.request; print(urllib.request.urlopen('http://localhost:5000/').read().decode().split('<h1>')[1].split('</h1>')[0])
+지윤의 방명록
+
+Exit code: 0

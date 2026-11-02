@@ -1,0 +1,4 @@
+$ kubectl -n week10 apply -f week06/guestbook/k8s/namespace.yaml
+namespace/week10 created
+
+Exit code: 0

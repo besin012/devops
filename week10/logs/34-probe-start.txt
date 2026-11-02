@@ -1,0 +1,4 @@
+$ kubectl -n week10 run rollout-check --restart=Never --image=busybox:1.37 --image-pull-policy=IfNotPresent -- sh -c while true; do if wget -q -T 2 -O /tmp/result http://guestbook/healthz; then echo OK; else echo FAIL; fi; sleep 0.2; done
+pod/rollout-check created
+
+Exit code: 0

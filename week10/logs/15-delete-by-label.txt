@@ -1,0 +1,5 @@
+$ kubectl -n week10 delete pods -l app=guestbook
+pod "guestbook-77d66695b-5wxnl" deleted from week10 namespace
+pod "guestbook-77d66695b-vqf7d" deleted from week10 namespace
+
+Exit code: 0

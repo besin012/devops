@@ -1,0 +1,4 @@
+$ kubectl -n week10 annotate deployment/guestbook kubernetes.io/change-cause=기존 방명록으로 롤백 --overwrite
+deployment.apps/guestbook annotated
+
+Exit code: 0

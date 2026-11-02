@@ -1,0 +1,26 @@
+$ kubectl -n week10 run lb-check --rm -i --restart=Never --image=busybox:1.37 --image-pull-policy=IfNotPresent -- sh -c for i in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20; do wget -q -T 3 -O- http://guestbook/healthz; echo; done
+{"hostname":"guestbook-77d66695b-jxfzh","status":"ok"}
+
+{"hostname":"guestbook-77d66695b-jxfzh","status":"ok"}
+
+{"hostname":"guestbook-77d66695b-jrg4d","status":"ok"}
+
+{"hostname":"guestbook-77d66695b-bq8v2","status":"ok"}
+
+{"hostname":"guestbook-77d66695b-jrg4d","status":"ok"}
+
+All commands and output from this session will be recorded in container logs, including credentials and sensitive information passed through the command prompt.
+If you don't see a command prompt, try pressing enter.
+{"hostname":"guestbook-77d66695b-jrg4d","status":"ok"}
+
+{"hostname":"guestbook-77d66695b-jrg4d","status":"ok"}
+
+{"hostname":"guestbook-77d66695b-bq8v2","status":"ok"}
+
+{"hostname":"guestbook-77d66695b-jrg4d","status":"ok"}
+
+{"hostname":"guestbook-77d66695b-jxfzh","status":"ok"}
+
+pod "lb-check" deleted from week10 namespace
+
+Exit code: 0

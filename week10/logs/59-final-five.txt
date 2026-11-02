@@ -1,0 +1,7 @@
+$ kubectl -n week10 get pods -l app=guestbook
+NAME                        READY   STATUS    RESTARTS   AGE
+guestbook-77d66695b-7gjnh   1/1     Running   0          5m56s
+guestbook-77d66695b-lphxf   1/1     Running   0          5m25s
+guestbook-77d66695b-sx4xh   1/1     Running   0          1s
+guestbook-77d66695b-wg2vr   1/1     Running   0          5m25s
+guestbook-77d66695b-xgsws   1/1     Running   0          5m25s

@@ -1,0 +1,4 @@
+$ kubectl -n week10 rollout status deployment/guestbook --timeout=120s
+deployment "guestbook" successfully rolled out
+
+Exit code: 0

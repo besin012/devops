@@ -1,0 +1,4 @@
+$ kubectl -n week10 delete pod rollout-check --ignore-not-found
+pod "rollout-check" deleted from week10 namespace
+
+Exit code: 0

@@ -1,0 +1,4 @@
+$ kubectl -n week10 annotate deployment/guestbook kubernetes.io/change-cause=제목에 v2 추가 --overwrite
+deployment.apps/guestbook annotated
+
+Exit code: 0

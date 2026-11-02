@@ -1,0 +1,5 @@
+$ kubectl -n week10 rollout undo deployment/guestbook
+Warning: resource deployments/guestbook was previously managed with 'kubectl apply'. Rolling back will not update the kubectl.kubernetes.io/last-applied-configuration annotation, which may cause unexpected behavior on future 'kubectl apply' operations. Consider using 'kubectl apply' with your previous configuration file instead.
+deployment.apps/guestbook rolled back
+
+Exit code: 0

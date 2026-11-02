@@ -1,0 +1,4 @@
+$ kubectl -n week10 apply -f /Users/leejiyun/Desktop/2학년2학기/DevOps/devops/week06/guestbook/k8s/deployment.yaml
+deployment.apps/guestbook unchanged
+
+Exit code: 0

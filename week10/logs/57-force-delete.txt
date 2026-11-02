@@ -1,0 +1,3 @@
+$ kubectl -n week10 delete pod guestbook-77d66695b-ct42w --grace-period=0 --force
+pod "guestbook-77d66695b-ct42w" force deleted from week10 namespace
+Warning: Immediate deletion does not wait for confirmation that the running resource has been terminated. The resource may continue to run on the cluster indefinitely.

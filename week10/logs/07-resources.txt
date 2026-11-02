@@ -1,0 +1,12 @@
+$ kubectl -n week10 get deploy,rs,pods,svc
+NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/guestbook   2/2     2            2           1s
+
+NAME                                  DESIRED   CURRENT   READY   AGE
+replicaset.apps/guestbook-77d66695b   2         2         2       1s
+
+NAME                            READY   STATUS    RESTARTS   AGE
+pod/guestbook-77d66695b-fng5c   1/1     Running   0          1s
+pod/guestbook-77d66695b-vqf7d   1/1     Running   0          1s
+
+Exit code: 0

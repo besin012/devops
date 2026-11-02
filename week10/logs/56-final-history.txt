@@ -1,0 +1,8 @@
+$ kubectl -n week10 rollout history deployment/guestbook
+deployment.apps/guestbook
+REVISION  CHANGE-CAUSE
+2         제목에 v2 추가
+3         기존 방명록으로 롤백
+
+
+Exit code: 0

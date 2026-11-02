@@ -1,0 +1,4 @@
+$ kubectl -n week10 wait --for=condition=Ready pod/rollout-check --timeout=90s
+pod/rollout-check condition met
+
+Exit code: 0

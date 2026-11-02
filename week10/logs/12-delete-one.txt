@@ -1,0 +1,4 @@
+$ kubectl -n week10 delete pod guestbook-77d66695b-fng5c
+pod "guestbook-77d66695b-fng5c" deleted from week10 namespace
+
+Exit code: 0
