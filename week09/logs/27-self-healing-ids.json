@@ -1,0 +1,12 @@
+{
+  "before": [
+    "mynginx-69585c44bc-25ksz",
+    "mynginx-69585c44bc-4vrjm",
+    "mynginx-69585c44bc-c8tf5"
+  ],
+  "after": [
+    "mynginx-69585c44bc-4vrjm",
+    "mynginx-69585c44bc-c8tf5",
+    "mynginx-69585c44bc-wf6kr"
+  ]
+}

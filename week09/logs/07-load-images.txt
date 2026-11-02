@@ -1,0 +1,8 @@
+$ /Users/leejiyun/Documents/Codex/2026-09-28/dh/work/kind-darwin-arm64 load docker-image nginx:alpine ghcr.io/besin012/guestbook:v2 --name devops-week09
+Image: "nginx:alpine" with ID "sha256:df221db836e1754089190208cee7eeda94f233197056426eda74a43ab1abeac2" not yet present on node "devops-week09-control-plane", loading...
+Image: "ghcr.io/besin012/guestbook:v2" with ID "sha256:8115d87406d3fb5558f8b53973bf8f0857876c7540129f47bfe9c64703ca3267" not yet present on node "devops-week09-control-plane", loading...
+ERROR: failed to load image: command "docker exec --privileged -i devops-week09-control-plane ctr --namespace=k8s.io images import --all-platforms --digests --snapshotter=overlayfs -" failed with error: exit status 1
+
+Command Output: ctr: content digest sha256:0530961ff0592b58c10f767535cc0abdfccf9e389ff7cc90f87320c1bc7e8506: not found
+
+Exit code: 1

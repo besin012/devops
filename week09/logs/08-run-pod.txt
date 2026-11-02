@@ -1,0 +1,4 @@
+$ kubectl run mynginx --image=nginx:alpine --image-pull-policy=IfNotPresent
+pod/mynginx created
+
+Exit code: 0

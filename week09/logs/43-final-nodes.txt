@@ -1,0 +1,5 @@
+$ kubectl get nodes
+NAME                          STATUS   ROLES           AGE    VERSION
+devops-week09-control-plane   Ready    control-plane   2m5s   v1.36.4
+
+Exit code: 0

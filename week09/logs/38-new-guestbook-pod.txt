@@ -1,0 +1,5 @@
+$ kubectl get pods -l app=guestbook
+NAME                        READY   STATUS    RESTARTS   AGE
+guestbook-b78b74c5f-nn6d4   1/1     Running   0          31s
+
+Exit code: 0

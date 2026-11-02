@@ -1,0 +1,4 @@
+$ kubectl delete pod mynginx-69585c44bc-25ksz
+pod "mynginx-69585c44bc-25ksz" deleted from default namespace
+
+Exit code: 0

@@ -1,0 +1,4 @@
+$ kubectl delete deployment mynginx
+deployment.apps "mynginx" deleted from default namespace
+
+Exit code: 0

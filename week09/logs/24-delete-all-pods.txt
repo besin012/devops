@@ -1,0 +1,6 @@
+$ kubectl delete pods --all
+pod "mynginx-69585c44bc-4vrjm" deleted from default namespace
+pod "mynginx-69585c44bc-c8tf5" deleted from default namespace
+pod "mynginx-69585c44bc-wf6kr" deleted from default namespace
+
+Exit code: 0

@@ -1,0 +1,13 @@
+$ kubectl get pods -A
+NAMESPACE            NAME                                                  READY   STATUS    RESTARTS   AGE
+kube-system          coredns-589f44dc88-lgrhz                              1/1     Running   0          68s
+kube-system          coredns-589f44dc88-nhqth                              1/1     Running   0          68s
+kube-system          etcd-devops-week09-control-plane                      1/1     Running   0          75s
+kube-system          kindnet-4b2p8                                         1/1     Running   0          68s
+kube-system          kube-apiserver-devops-week09-control-plane            1/1     Running   0          75s
+kube-system          kube-controller-manager-devops-week09-control-plane   1/1     Running   0          75s
+kube-system          kube-proxy-hb65w                                      1/1     Running   0          68s
+kube-system          kube-scheduler-devops-week09-control-plane            1/1     Running   0          75s
+local-path-storage   local-path-provisioner-56c4685b7c-j7dpk               1/1     Running   0          68s
+
+Exit code: 0

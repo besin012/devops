@@ -1,0 +1,9 @@
+Forwarding from 127.0.0.1:18090 -> 5000
+Forwarding from [::1]:18090 -> 5000
+Handling connection for 18090
+Handling connection for 18090
+Handling connection for 18090
+Handling connection for 18090
+Handling connection for 18090
+E1102 16:33:28.255052   55100 portforward.go:522] "Unhandled Error" err="an error occurred forwarding 18090 -> 5000: error forwarding port 5000 to pod ae1126bee956fd2aba7322b5a2985cd62a7b18fd4567a104a0f8f0d0b9339340, uid : network namespace for sandbox \"ae1126bee956fd2aba7322b5a2985cd62a7b18fd4567a104a0f8f0d0b9339340\" is closed"
+error: lost connection to pod

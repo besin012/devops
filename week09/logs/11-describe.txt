@@ -1,0 +1,54 @@
+$ kubectl describe pod mynginx
+Name:             mynginx
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             devops-week09-control-plane/172.19.0.2
+Start Time:       Mon, 02 Nov 2026 16:32:39 +0900
+Labels:           run=mynginx
+Annotations:      <none>
+Status:           Running
+IP:               10.244.0.5
+IPs:
+  IP:  10.244.0.5
+Containers:
+  mynginx:
+    Container ID:   containerd://f08ae60047addabcc43a9545e50446e58d67c547b0c4f66d48b23357e6b47177
+    Image:          nginx:alpine
+    Image ID:       docker.io/library/import-2026-11-02@sha256:925007b7037bf26abd0e3a54bdfecb16e33fa121570f8444156614dd1397b806
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Mon, 02 Nov 2026 16:32:39 +0900
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-qp5zg (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True
+  Initialized                 True
+  Ready                       True
+  ContainersReady             True
+  PodScheduled                True
+Volumes:
+  kube-api-access-qp5zg:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  0s    default-scheduler  Successfully assigned default/mynginx to devops-week09-control-plane
+  Normal  Pulled     0s    kubelet            spec.containers{mynginx}: Container image "nginx:alpine" already present on machine and can be accessed by the pod
+  Normal  Created    0s    kubelet            spec.containers{mynginx}: Container created
+  Normal  Started    0s    kubelet            spec.containers{mynginx}: Container started
+
+Exit code: 0

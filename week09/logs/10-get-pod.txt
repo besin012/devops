@@ -1,0 +1,5 @@
+$ kubectl get pods -o wide
+NAME      READY   STATUS    RESTARTS   AGE   IP           NODE                          NOMINATED NODE   READINESS GATES
+mynginx   1/1     Running   0          0s    10.244.0.5   devops-week09-control-plane   <none>           <none>
+
+Exit code: 0

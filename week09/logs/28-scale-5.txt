@@ -1,0 +1,4 @@
+$ kubectl scale deployment mynginx --replicas=5
+deployment.apps/mynginx scaled
+
+Exit code: 0

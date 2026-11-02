@@ -1,0 +1,4 @@
+$ kubectl delete pod -l app=guestbook
+pod "guestbook-b78b74c5f-nc2xl" deleted from default namespace
+
+Exit code: 0

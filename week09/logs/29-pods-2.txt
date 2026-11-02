@@ -1,0 +1,6 @@
+$ kubectl get pods
+NAME                       READY   STATUS    RESTARTS   AGE
+mynginx-69585c44bc-c4kb2   1/1     Running   0          7s
+mynginx-69585c44bc-drmxd   1/1     Running   0          7s
+
+Exit code: 0

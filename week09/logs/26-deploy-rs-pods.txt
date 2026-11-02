@@ -1,0 +1,13 @@
+$ kubectl get deploy,rs,pods
+NAME                      READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/mynginx   3/3     3            3           8s
+
+NAME                                 DESIRED   CURRENT   READY   AGE
+replicaset.apps/mynginx-69585c44bc   3         3         3       8s
+
+NAME                           READY   STATUS    RESTARTS   AGE
+pod/mynginx-69585c44bc-97d9h   1/1     Running   0          3s
+pod/mynginx-69585c44bc-c4kb2   1/1     Running   0          3s
+pod/mynginx-69585c44bc-drmxd   1/1     Running   0          3s
+
+Exit code: 0

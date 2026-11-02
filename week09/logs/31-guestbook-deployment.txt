@@ -1,0 +1,4 @@
+$ kubectl create deployment guestbook --image=ghcr.io/besin012/guestbook:v2
+deployment.apps/guestbook created
+
+Exit code: 0

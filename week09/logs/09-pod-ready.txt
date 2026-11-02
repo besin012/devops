@@ -1,0 +1,4 @@
+$ kubectl wait --for=condition=Ready pod/mynginx --timeout=120s
+pod/mynginx condition met
+
+Exit code: 0

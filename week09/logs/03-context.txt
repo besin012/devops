@@ -1,0 +1,4 @@
+$ kubectl config current-context
+kind-devops-week09
+
+Exit code: 0

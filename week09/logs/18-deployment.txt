@@ -1,0 +1,4 @@
+$ kubectl create deployment mynginx --image=nginx:alpine --replicas=3
+deployment.apps/mynginx created
+
+Exit code: 0

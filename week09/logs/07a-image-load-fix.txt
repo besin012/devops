@@ -1,0 +1,4 @@
+기본 kind load docker-image에서 content digest not found 발생.
+해결: docker image save --platform linux/arm64 -o week09-images.tar nginx:alpine ghcr.io/besin012/guestbook:v2
+kind load image-archive week09-images.tar --name devops-week09
+두 명령 모두 종료 코드 0 확인. 다음 로그에서 실제 이미지 목록 확인.

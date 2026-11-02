@@ -11,5 +11,6 @@
 | [5주차](week05/README.md) | Docker와 nginx 컨테이너 |
 | [6주차](week06/README.md) | Dockerfile, 빌드 캐시, 방명록 이미지 배포 |
 | [7주차](week07/README.md) | Compose, Redis, nginx, 웹 컨테이너 확장 |
+| [9주차](week09/README.md) | Kubernetes, Pod, Deployment, 자가 치유 |
 
 방명록 코드는 [week06/guestbook](week06/guestbook/)에 있다. 7주차에도 같은 코드를 이어서 사용했다.
