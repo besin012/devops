@@ -12,7 +12,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository_owner }}/guestbook
+  IMAGE_NAME: ${{ github.repository_owner }}/guestbook-week12
 
 jobs:
   build:
@@ -63,4 +63,5 @@ jobs:
           context: ./week06/guestbook
           push: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/main' }}
           tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
           platforms: linux/amd64,linux/arm64
