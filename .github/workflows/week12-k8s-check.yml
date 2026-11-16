@@ -1,0 +1,40 @@
+name: Week 12 Kubernetes check
+on:
+  push:
+    branches: [week12-k8s-check]
+jobs:
+  rollout:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
+    steps:
+      - name: GHCR 로그인
+        uses: docker/login-action@v4
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: 이미지 내려받고 Deployment 업데이트
+        run: |
+          set -euo pipefail
+          image="ghcr.io/${GITHUB_REPOSITORY_OWNER}/guestbook-week12:0d13b25"
+          docker pull "$image"
+          if ! command -v kind >/dev/null; then
+            curl -fsSLo "$RUNNER_TEMP/kind" https://kind.sigs.k8s.io/dl/v0.33.0/kind-linux-amd64
+            chmod +x "$RUNNER_TEMP/kind"
+            export PATH="$RUNNER_TEMP:$PATH"
+          fi
+          kind create cluster --name week12 --wait 2m
+          docker image save --platform linux/amd64 -o "$RUNNER_TEMP/guestbook.tar" "$image"
+          kind load image-archive "$RUNNER_TEMP/guestbook.tar" --name week12
+          kubectl create deployment guestbook --image=nginx:alpine --replicas=0 --port=5000
+          kubectl set image deployment/guestbook nginx="$image"
+          kubectl patch deployment guestbook --type strategic -p '{"spec":{"template":{"spec":{"containers":[{"name":"nginx","imagePullPolicy":"IfNotPresent"}]}}}}'
+          kubectl scale deployment/guestbook --replicas=1
+          kubectl rollout status deployment/guestbook --timeout=120s
+          kubectl port-forward deployment/guestbook 18092:5000 > "$RUNNER_TEMP/port-forward.log" 2>&1 &
+          forward_pid=$!
+          trap 'kill "$forward_pid" 2>/dev/null || true' EXIT
+          curl --retry 12 --retry-all-errors --retry-delay 1 -fsS http://localhost:18092/healthz
+          curl -fsS http://localhost:18092/ | grep -o '<title>.*</title>' | grep -F ' new</title>'
