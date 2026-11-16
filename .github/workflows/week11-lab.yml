@@ -48,7 +48,9 @@ jobs:
           try:
               with urlopen(Request("http://localhost:5000" + path, data=data, method=method)) as r:
                   body = r.read().decode()
-                  if path == "/":
+                  if method == "POST":
+                      print(r.status, "Entry submitted")
+                  elif path == "/":
                       import re
                       print(re.search(r"<title>.*?</title>", body).group())
                   else:
@@ -75,10 +77,10 @@ jobs:
           kubectl wait --for=condition=Ready=false pod -l app=guestbook --timeout=90s
           kubectl get pods -l app=guestbook
           request deploy/guestbook /readyz GET | grep '^503 '
-          kubectl get endpointslices -l kubernetes.io/service-name=guestbook -o json | jq -e '[.items[].endpoints[].conditions.ready] | length == 4 and all(. == false)'
+          kubectl get endpointslices -l kubernetes.io/service-name=guestbook -o json | jq -e '[.items[].endpoints[].conditions | select(.terminating != true) | .ready] | length == 4 and all(. == false)'
           kubectl scale deployment redis --replicas=1
           kubectl rollout status deployment/redis --timeout=120s
-          kubectl wait --for=condition=Ready=true pod -l app=guestbook --timeout=90s
+          kubectl get pods -l app=guestbook -o json | jq -r '.items[] | select(.metadata.deletionTimestamp == null) | "pod/" + .metadata.name' | xargs kubectl wait --for=condition=Ready=true --timeout=90s
           kubectl get pods -l app=guestbook
           kubectl patch deployment guestbook -p '{"spec":{"template":{"spec":{"containers":[{"name":"web","livenessProbe":{"httpGet":{"path":"/devops"},"periodSeconds":5,"failureThreshold":2}}]}}}}'
           for attempt in {1..25}; do
