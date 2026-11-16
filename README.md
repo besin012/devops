@@ -13,6 +13,7 @@
 | [7주차](week07/README.md) | Compose, Redis, nginx, 웹 컨테이너 확장 |
 | [9주차](week09/README.md) | Kubernetes, Pod, Deployment, 자가 치유 |
 | [10주차](week10/README.md) | YAML 배포, Service, 롤링 업데이트와 롤백 |
+| [11주차](week11/README.md) | ConfigMap, Secret, Redis, 상태 점검 |
 | [12주차](week12/README.md) | GitHub Actions, 방명록 CI, main 보호 |
 
 방명록 코드는 [week06/guestbook](week06/guestbook/)에 있다. 7주차에도 같은 코드를 이어서 사용했다.
