@@ -86,6 +86,7 @@ def incr_visits() -> int:
 # ---------------------------------------------------------------
 @app.route("/")
 def index():
+    print(APP_TITL)
     visits = incr_visits()
     return render_template(
         "index.html",
@@ -133,5 +134,3 @@ def readyz():
 if __name__ == "__main__":
     print(f"[INFO] {APP_TITLE} 시작 — http://0.0.0.0:{PORT}", flush=True)
     app.run(host="0.0.0.0", port=PORT)
-
-def broken(:
