@@ -1,0 +1,95 @@
+name: Week 11 Kubernetes lab
+on:
+  push:
+    branches: [week11-lab-check]
+permissions:
+  contents: read
+jobs:
+  lab:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: ConfigMap, Secret, Redis and probes
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! command -v kind >/dev/null; then
+            curl -fsSLo "$RUNNER_TEMP/kind" https://kind.sigs.k8s.io/dl/v0.33.0/kind-linux-amd64
+            chmod +x "$RUNNER_TEMP/kind"
+            export PATH="$RUNNER_TEMP:$PATH"
+          fi
+          kind create cluster --name week11 --wait 2m
+          kubectl create namespace week11
+          kubectl config set-context --current --namespace=week11
+          cd week11/k8s
+          password=$(openssl rand -hex 24)
+          echo "::add-mask::$password"
+          kubectl create secret generic guestbook-secret --from-literal=REDIS_PASSWORD="$password"
+          kubectl apply -f configmap.yaml -f redis.yaml
+          kubectl get cm,secret
+          test "$(kubectl get secret guestbook-secret -o jsonpath='{.data.REDIS_PASSWORD}' | base64 -d)" = "$password"
+          echo 'Secret base64 decode matches the original (value hidden)'
+          kubectl rollout status deployment/redis --timeout=120s
+          kubectl exec deploy/redis -- sh -c 'REDISCLI_AUTH="$REDIS_PASSWORD" redis-cli PING' | grep -Fx PONG
+          kubectl apply -f deployment.yaml -f service.yaml
+          kubectl rollout status deployment/guestbook --timeout=120s
+          kubectl logs -l app=guestbook | grep 'Redis 연결 성공'
+          kubectl exec deploy/guestbook -- printenv APP_TITLE THEME_COLOR REDIS_HOST REDIS_PORT
+          request() {
+            kubectl exec "$1" -- python -c '
+          import sys
+          from urllib.request import Request, urlopen
+          from urllib.error import HTTPError
+          path, method = sys.argv[1:]
+          data = b"name=student&message=Week11+test" if method == "POST" else None
+          try:
+              with urlopen(Request("http://localhost:5000" + path, data=data, method=method)) as r:
+                  body = r.read().decode()
+                  if path == "/":
+                      import re
+                      print(re.search(r"<title>.*?</title>", body).group())
+                  else:
+                      print(r.status, body)
+          except HTTPError as err:
+              print(err.code, err.read().decode())
+          ' "$2" "$3"
+          }
+          request deploy/guestbook / GET
+          request deploy/guestbook /add POST
+          kubectl scale deployment guestbook --replicas=4
+          kubectl rollout status deployment/guestbook --timeout=120s
+          for pod in $(kubectl get pods -l app=guestbook -o name); do
+            echo "$pod"
+            request "$pod" /api/entries GET | grep -F 'Week11 test'
+          done
+          kubectl patch configmap guestbook-config --type merge -p '{"data":{"APP_TITLE":"New 방명록 (k8s)","THEME_COLOR":"#e11d48"}}'
+          kubectl rollout restart deployment/guestbook
+          kubectl rollout status deployment/guestbook --timeout=120s
+          kubectl exec deploy/guestbook -- printenv APP_TITLE THEME_COLOR
+          request deploy/guestbook / GET | grep -F 'New 방명록 (k8s)'
+          request deploy/guestbook /api/entries GET | grep -F 'Week11 test'
+          kubectl scale deployment redis --replicas=0
+          kubectl wait --for=condition=Ready=false pod -l app=guestbook --timeout=90s
+          kubectl get pods -l app=guestbook
+          request deploy/guestbook /readyz GET | grep '^503 '
+          kubectl get endpointslices -l kubernetes.io/service-name=guestbook -o json | jq -e '[.items[].endpoints[].conditions.ready] | length == 4 and all(. == false)'
+          kubectl scale deployment redis --replicas=1
+          kubectl rollout status deployment/redis --timeout=120s
+          kubectl wait --for=condition=Ready=true pod -l app=guestbook --timeout=90s
+          kubectl get pods -l app=guestbook
+          kubectl patch deployment guestbook -p '{"spec":{"template":{"spec":{"containers":[{"name":"web","livenessProbe":{"httpGet":{"path":"/devops"},"periodSeconds":5,"failureThreshold":2}}]}}}}'
+          for attempt in {1..25}; do
+            pod=$(kubectl get pods -l app=guestbook -o json | jq -r '.items[] | select(any(.status.containerStatuses[]?; .restartCount > 0)) | .metadata.name' | head -1)
+            if [ -n "$pod" ]; then break; fi
+            sleep 3
+          done
+          test -n "$pod"
+          kubectl get pod "$pod"
+          kubectl describe pod "$pod" | grep -E 'Liveness probe failed|Killing'
+          kubectl logs "$pod" --previous | grep -E 'Redis 연결 성공|GET /devops'
+          kubectl rollout undo deployment/guestbook
+          kubectl rollout status deployment/guestbook --timeout=120s
+          kubectl get pods -l app=guestbook
