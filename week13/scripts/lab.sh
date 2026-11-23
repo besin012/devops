@@ -18,12 +18,15 @@ echo "::add-mask::$password"
 kubectl -n week13 create secret generic guestbook-secret --from-literal=REDIS_PASSWORD="$password"
 git config user.name "$(git log -1 --format=%an)"
 git config user.email "$(git log -1 --format=%ae)"
-git switch -c week13-gitops-demo
-git push origin week13-gitops-demo
+demo_branch="week13-gitops-demo-$GITHUB_RUN_ID"
+git switch -c "$demo_branch"
+git push origin "$demo_branch"
+export DEMO_BRANCH="$demo_branch"
 python3 - <<'PY'
 from pathlib import Path
+import os
 p=Path('argocd-application.yaml')
-p.write_text(p.read_text().replace('targetRevision: main','targetRevision: week13-gitops-demo'))
+p.write_text(p.read_text().replace('targetRevision: main','targetRevision: '+os.environ['DEMO_BRANCH']))
 PY
 kubectl apply -f argocd-application.yaml
 wait_sync() {
@@ -35,6 +38,10 @@ wait_sync() {
       jq '{sync:.status.sync,health:.status.health}' <<< "$status"
       return 0
     fi
+    if ((i % 6 == 0)); then
+      jq '{sync:.status.sync,health:.status.health,conditions:.status.conditions,operation:.status.operationState.message}' <<< "$status"
+      kubectl -n week13 get pods
+    fi
     sleep 5
   done
   kubectl -n argocd get application guestbook -o yaml
@@ -43,7 +50,7 @@ wait_sync() {
 commit_push() {
   git add week13/k8s
   git commit -m "$1"
-  git push origin week13-gitops-demo
+  git push origin "$demo_branch"
   wait_sync
 }
 wait_sync
@@ -66,7 +73,7 @@ test "$count" = 4
 echo 'selfHeal restored replicas=4'
 wait_sync
 git revert "$scale_commit" --no-edit
-git push origin week13-gitops-demo
+git push origin "$demo_branch"
 wait_sync
 test "$(kubectl -n week13 get deployment guestbook -o jsonpath='{.spec.replicas}')" = 2
 kubectl -n week13 get pods
