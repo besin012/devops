@@ -22,8 +22,9 @@ kubectl -n week13 port-forward svc/guestbook 8080:80
 
 - Git에서 replicas를 2개에서 4개로 바꾸니 Argo CD가 반영했다. 직접 10개로 늘린 값은 selfHeal로 다시 4개가 됐다.
 - 스케일 변경 커밋을 revert하니 2개로 돌아왔다. hello ConfigMap을 Git에 추가하고 삭제해 prune 동작도 확인했다.
-- 제목을 CI/CD로 바꾼 이미지를 Actions로 게시했다. 배포 YAML에는 latest 대신 커밋 태그 `8113efe`를 사용했다.
+- 제목을 CI/CD로 바꾼 이미지를 Actions로 게시했다. Git의 이미지 태그를 `8113efe`로 바꾸니 Argo CD가 배포했고, 페이지 제목과 `/healthz` 응답을 확인했다.
+- `kubectl top`으로 CPU와 메모리를 확인했다. 부하를 주니 방명록 Pod의 CPU가 약 1m에서 122m·167m으로 올랐다. Prometheus의 CPU 조회 결과와 Grafana의 대시보드 목록을 확인하고 부하용 Pod를 지웠다.
 
 맥의 Docker가 연결되지 않아 GitHub 러너의 임시 kind 클러스터에서 실행했다. 변경 실험에는 `week13-gitops-demo-45151075425` 브랜치를 사용했고, 저장한 Application은 main을 읽도록 설정했다.
 
-[실행 로그](https://github.com/besin012/devops/actions/runs/45151075425)
+[실행 기록](logs/lab.txt) · [GitHub Actions](https://github.com/besin012/devops/actions/runs/45151075425)

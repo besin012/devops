@@ -1,0 +1,513 @@
+Creating cluster "week13" ...
+ • Ensuring node image (kindest/node:v1.37.0) 🖼️  ...
+ ✓ Ensuring node image (kindest/node:v1.37.0) 🖼️
+ • Preparing nodes 📦   ...
+ ✓ Preparing nodes 📦 
+ • Writing configuration 📜  ...
+ ✓ Writing configuration 📜
+ • Starting control-plane 🕹️  ...
+ ✓ Starting control-plane 🕹️
+ • Installing CNI 🔌  ...
+ ✓ Installing CNI 🔌
+ • Installing StorageClass 💾  ...
+ ✓ Installing StorageClass 💾
+ • Waiting ≤ 2m0s for control-plane = Ready ⏳  ...
+ ✓ Waiting ≤ 2m0s for control-plane = Ready ⏳
+ • Ready after 18s 💚
+Set kubectl context to "kind-week13"
+You can now use your cluster with:
+
+kubectl cluster-info --context kind-week13
+
+Have a nice day! 👋
+namespace/week13 created
+namespace/argocd created
+customresourcedefinition.apiextensions.k8s.io/applications.argoproj.io serverside-applied
+customresourcedefinition.apiextensions.k8s.io/applicationsets.argoproj.io serverside-applied
+customresourcedefinition.apiextensions.k8s.io/appprojects.argoproj.io serverside-applied
+serviceaccount/argocd-application-controller serverside-applied
+serviceaccount/argocd-applicationset-controller serverside-applied
+serviceaccount/argocd-dex-server serverside-applied
+serviceaccount/argocd-notifications-controller serverside-applied
+serviceaccount/argocd-redis serverside-applied
+serviceaccount/argocd-repo-server serverside-applied
+serviceaccount/argocd-server serverside-applied
+role.rbac.authorization.k8s.io/argocd-application-controller serverside-applied
+role.rbac.authorization.k8s.io/argocd-applicationset-controller serverside-applied
+role.rbac.authorization.k8s.io/argocd-dex-server serverside-applied
+role.rbac.authorization.k8s.io/argocd-notifications-controller serverside-applied
+role.rbac.authorization.k8s.io/argocd-redis serverside-applied
+role.rbac.authorization.k8s.io/argocd-server serverside-applied
+clusterrole.rbac.authorization.k8s.io/argocd-application-controller serverside-applied
+clusterrole.rbac.authorization.k8s.io/argocd-applicationset-controller serverside-applied
+clusterrole.rbac.authorization.k8s.io/argocd-server serverside-applied
+rolebinding.rbac.authorization.k8s.io/argocd-application-controller serverside-applied
+rolebinding.rbac.authorization.k8s.io/argocd-applicationset-controller serverside-applied
+rolebinding.rbac.authorization.k8s.io/argocd-dex-server serverside-applied
+rolebinding.rbac.authorization.k8s.io/argocd-notifications-controller serverside-applied
+rolebinding.rbac.authorization.k8s.io/argocd-redis serverside-applied
+rolebinding.rbac.authorization.k8s.io/argocd-server serverside-applied
+clusterrolebinding.rbac.authorization.k8s.io/argocd-application-controller serverside-applied
+clusterrolebinding.rbac.authorization.k8s.io/argocd-applicationset-controller serverside-applied
+clusterrolebinding.rbac.authorization.k8s.io/argocd-server serverside-applied
+configmap/argocd-cm serverside-applied
+configmap/argocd-cmd-params-cm serverside-applied
+configmap/argocd-gpg-keys-cm serverside-applied
+configmap/argocd-notifications-cm serverside-applied
+configmap/argocd-rbac-cm serverside-applied
+configmap/argocd-ssh-known-hosts-cm serverside-applied
+configmap/argocd-tls-certs-cm serverside-applied
+secret/argocd-notifications-secret serverside-applied
+secret/argocd-secret serverside-applied
+service/argocd-application-controller serverside-applied
+service/argocd-applicationset-controller serverside-applied
+service/argocd-dex-server serverside-applied
+service/argocd-metrics serverside-applied
+service/argocd-notifications-controller-metrics serverside-applied
+service/argocd-redis serverside-applied
+service/argocd-repo-server serverside-applied
+service/argocd-server serverside-applied
+service/argocd-server-metrics serverside-applied
+deployment.apps/argocd-applicationset-controller serverside-applied
+deployment.apps/argocd-dex-server serverside-applied
+deployment.apps/argocd-notifications-controller serverside-applied
+deployment.apps/argocd-redis serverside-applied
+deployment.apps/argocd-repo-server serverside-applied
+deployment.apps/argocd-server serverside-applied
+statefulset.apps/argocd-application-controller serverside-applied
+networkpolicy.networking.k8s.io/argocd-application-controller-network-policy serverside-applied
+networkpolicy.networking.k8s.io/argocd-applicationset-controller-network-policy serverside-applied
+networkpolicy.networking.k8s.io/argocd-dex-server-network-policy serverside-applied
+networkpolicy.networking.k8s.io/argocd-notifications-controller-network-policy serverside-applied
+networkpolicy.networking.k8s.io/argocd-redis-network-policy serverside-applied
+networkpolicy.networking.k8s.io/argocd-repo-server-network-policy serverside-applied
+networkpolicy.networking.k8s.io/argocd-server-network-policy serverside-applied
+Waiting for deployment "argocd-repo-server" rollout to finish: 0 of 1 updated replicas are available...
+deployment "argocd-repo-server" successfully rolled out
+partitioned roll out complete: 1 new pods have been updated...
+secret/guestbook-secret created
+Switched to a new branch 'week13-gitops-demo-45151075425'
+remote: 
+remote: Create a pull request for 'week13-gitops-demo-45151075425' on GitHub by visiting:        
+remote:      https://github.com/besin012/devops/pull/new/week13-gitops-demo-45151075425        
+remote: 
+To https://github.com/besin012/devops
+ * [new branch]      week13-gitops-demo-45151075425 -> week13-gitops-demo-45151075425
+application.argoproj.io/guestbook created
+{
+  "sync": {
+    "comparedTo": {
+      "destination": {
+        "namespace": "week13",
+        "server": "https://kubernetes.default.svc"
+      },
+      "source": {
+        "path": "week13/k8s",
+        "repoURL": "https://github.com/besin012/devops.git",
+        "targetRevision": "week13-gitops-demo-45151075425"
+      }
+    },
+    "revision": "5f3dda3b9cf76b666ca9d1d25ae21cd253a80ffa",
+    "status": "Synced"
+  },
+  "health": {
+    "lastTransitionTime": "2026-11-23T09:55:05Z",
+    "status": "Healthy"
+  }
+}
+NAME                         READY   STATUS    RESTARTS   AGE
+guestbook-755b477f74-c8wmm   1/1     Running   0          12s
+guestbook-755b477f74-vbcjg   1/1     Running   0          12s
+redis-57d7f66958-8kkhz       1/1     Running   0          14s
+[INFO] Redis 연결 성공: redis:6379
+[INFO] 방명록 (k8s) 시작 — http://0.0.0.0:5000
+ * Serving Flask app 'app'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.244.0.14:5000
+[33mPress CTRL+C to quit[0m
+10.244.0.1 - - [23/Nov/2026 09:55:05] "GET /readyz HTTP/1.1" 200 -
+10.244.0.1 - - [23/Nov/2026 09:55:05] "GET /healthz HTTP/1.1" 200 -
+[INFO] Redis 연결 성공: redis:6379
+[INFO] 방명록 (k8s) 시작 — http://0.0.0.0:5000
+ * Serving Flask app 'app'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.244.0.13:5000
+[33mPress CTRL+C to quit[0m
+10.244.0.1 - - [23/Nov/2026 09:55:04] "GET /readyz HTTP/1.1" 200 -
+10.244.0.1 - - [23/Nov/2026 09:55:05] "GET /healthz HTTP/1.1" 200 -
+[week13-gitops-demo-45151075425 3d03eb7] week13 : Pod 4개
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+To https://github.com/besin012/devops
+   5f3dda3..3d03eb7  week13-gitops-demo-45151075425 -> week13-gitops-demo-45151075425
+{
+  "sync": {
+    "comparedTo": {
+      "destination": {
+        "namespace": "week13",
+        "server": "https://kubernetes.default.svc"
+      },
+      "source": {
+        "path": "week13/k8s",
+        "repoURL": "https://github.com/besin012/devops.git",
+        "targetRevision": "week13-gitops-demo-45151075425"
+      }
+    },
+    "revision": "3d03eb787256ac47354a3caa2de2684f34e23255",
+    "status": "Synced"
+  },
+  "health": {
+    "lastTransitionTime": "2026-11-23T09:55:17Z",
+    "status": "Healthy"
+  }
+}
+NAME                         READY   STATUS    RESTARTS   AGE
+guestbook-755b477f74-c8wmm   1/1     Running   0          24s
+guestbook-755b477f74-jffxv   1/1     Running   0          7s
+guestbook-755b477f74-vbcjg   1/1     Running   0          24s
+guestbook-755b477f74-z2h6x   1/1     Running   0          7s
+redis-57d7f66958-8kkhz       1/1     Running   0          26s
+deployment.apps/guestbook scaled
+NAME        READY   UP-TO-DATE   AVAILABLE   AGE
+guestbook   4/10    4            4           25s
+selfHeal restored replicas=4
+{
+  "sync": {
+    "comparedTo": {
+      "destination": {
+        "namespace": "week13",
+        "server": "https://kubernetes.default.svc"
+      },
+      "source": {
+        "path": "week13/k8s",
+        "repoURL": "https://github.com/besin012/devops.git",
+        "targetRevision": "week13-gitops-demo-45151075425"
+      }
+    },
+    "revision": "3d03eb787256ac47354a3caa2de2684f34e23255",
+    "status": "Synced"
+  },
+  "health": {
+    "lastTransitionTime": "2026-11-23T09:55:19Z",
+    "status": "Healthy"
+  }
+}
+[week13-gitops-demo-45151075425 4b6a26c] Revert "week13 : Pod 4개"
+ Date: Mon Nov 23 09:55:21 2026 +0000
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+To https://github.com/besin012/devops
+   3d03eb7..4b6a26c  week13-gitops-demo-45151075425 -> week13-gitops-demo-45151075425
+{
+  "sync": {
+    "comparedTo": {
+      "destination": {
+        "namespace": "week13",
+        "server": "https://kubernetes.default.svc"
+      },
+      "source": {
+        "path": "week13/k8s",
+        "repoURL": "https://github.com/besin012/devops.git",
+        "targetRevision": "week13-gitops-demo-45151075425"
+      }
+    },
+    "revision": "4b6a26c5b060651ea98face79a6fbfc88ea6edad",
+    "status": "Synced"
+  },
+  "health": {
+    "lastTransitionTime": "2026-11-23T09:55:19Z",
+    "status": "Healthy"
+  }
+}
+NAME                         READY   STATUS        RESTARTS   AGE
+guestbook-755b477f74-8jvh5   1/1     Terminating   0          9s
+guestbook-755b477f74-c8wmm   1/1     Running       0          34s
+guestbook-755b477f74-dbk76   1/1     Terminating   0          9s
+guestbook-755b477f74-jffxv   1/1     Terminating   0          17s
+guestbook-755b477f74-lrdbc   1/1     Terminating   0          9s
+guestbook-755b477f74-nx7vh   1/1     Terminating   0          9s
+guestbook-755b477f74-phgrs   1/1     Terminating   0          9s
+guestbook-755b477f74-vbcjg   1/1     Running       0          34s
+guestbook-755b477f74-z2h6x   1/1     Terminating   0          17s
+guestbook-755b477f74-zdtp7   1/1     Terminating   0          9s
+redis-57d7f66958-8kkhz       1/1     Running       0          36s
+[week13-gitops-demo-45151075425 0f71cfa] week13 : hello 추가
+ 1 file changed, 6 insertions(+)
+ create mode 100644 week13/k8s/hello.yaml
+To https://github.com/besin012/devops
+   4b6a26c..0f71cfa  week13-gitops-demo-45151075425 -> week13-gitops-demo-45151075425
+{
+  "sync": {
+    "comparedTo": {
+      "destination": {
+        "namespace": "week13",
+        "server": "https://kubernetes.default.svc"
+      },
+      "source": {
+        "path": "week13/k8s",
+        "repoURL": "https://github.com/besin012/devops.git",
+        "targetRevision": "week13-gitops-demo-45151075425"
+      }
+    },
+    "revision": "0f71cfa21392eda392381d3251289487f0ee7b1a",
+    "status": "Synced"
+  },
+  "health": {
+    "lastTransitionTime": "2026-11-23T09:55:19Z",
+    "status": "Healthy"
+  }
+}
+NAME    DATA   AGE
+hello   1      2s
+rm 'week13/k8s/hello.yaml'
+[week13-gitops-demo-45151075425 efa26ac] week13 : hello 삭제
+ 1 file changed, 6 deletions(-)
+ delete mode 100644 week13/k8s/hello.yaml
+To https://github.com/besin012/devops
+   0f71cfa..efa26ac  week13-gitops-demo-45151075425 -> week13-gitops-demo-45151075425
+{
+  "sync": {
+    "comparedTo": {
+      "destination": {
+        "namespace": "week13",
+        "server": "https://kubernetes.default.svc"
+      },
+      "source": {
+        "path": "week13/k8s",
+        "repoURL": "https://github.com/besin012/devops.git",
+        "targetRevision": "week13-gitops-demo-45151075425"
+      }
+    },
+    "revision": "efa26ac0c7bc86b307b07e51376622b631470d1a",
+    "status": "Synced"
+  },
+  "health": {
+    "lastTransitionTime": "2026-11-23T09:55:19Z",
+    "status": "Healthy"
+  }
+}
+Error from server (NotFound): configmaps "hello" not found
+prune removed hello ConfigMap
+[week13-gitops-demo-45151075425 391df08] week13 : 새 이미지 배포
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+To https://github.com/besin012/devops
+   efa26ac..391df08  week13-gitops-demo-45151075425 -> week13-gitops-demo-45151075425
+{
+  "sync": {
+    "comparedTo": {
+      "destination": {
+        "namespace": "week13",
+        "server": "https://kubernetes.default.svc"
+      },
+      "source": {
+        "path": "week13/k8s",
+        "repoURL": "https://github.com/besin012/devops.git",
+        "targetRevision": "week13-gitops-demo-45151075425"
+      }
+    },
+    "revision": "391df08562e1840b5c8bf8fb854e2c60593775d4",
+    "status": "Synced"
+  },
+  "health": {
+    "lastTransitionTime": "2026-11-23T09:56:02Z",
+    "status": "Healthy"
+  }
+}
+deployment "guestbook" successfully rolled out
+ghcr.io/besin012/guestbook-week12:8113efe
+curl: (7) Failed to connect to localhost port 18093 after 0 ms: Could not connect to server
+{"hostname":"guestbook-f847b946b-6m4k6","status":"ok"}
+<title>방명록 (k8s) CI/CD</title>
+serviceaccount/metrics-server created
+clusterrole.rbac.authorization.k8s.io/system:aggregated-metrics-reader created
+clusterrole.rbac.authorization.k8s.io/system:metrics-server created
+rolebinding.rbac.authorization.k8s.io/metrics-server-auth-reader created
+clusterrolebinding.rbac.authorization.k8s.io/metrics-server:system:auth-delegator created
+clusterrolebinding.rbac.authorization.k8s.io/system:metrics-server created
+service/metrics-server created
+deployment.apps/metrics-server created
+apiservice.apiregistration.k8s.io/v1beta1.metrics.k8s.io created
+deployment.apps/metrics-server patched
+Waiting for deployment "metrics-server" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "metrics-server" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "metrics-server" rollout to finish: 1 old replicas are pending termination...
+deployment "metrics-server" successfully rolled out
+error: Metrics API not available
+NAME                        CPU(cores)   MEMORY(bytes)   
+guestbook-f847b946b-6m4k6   1m           27Mi            
+guestbook-f847b946b-9vs27   1m           26Mi            
+redis-57d7f66958-8kkhz      3m           3Mi             
+NAME                   CPU(cores)   CPU(%)   MEMORY(bytes)   MEMORY(%)   
+week13-control-plane   321m         8%       1462Mi          9%          
+"prometheus-community" has been added to your repositories
+NAME: monitoring
+LAST DEPLOYED: Mon Nov 23 09:56:41 2026
+NAMESPACE: monitoring
+STATUS: deployed
+REVISION: 1
+DESCRIPTION: Install complete
+NOTES:
+kube-prometheus-stack has been installed. Check its status by running:
+  kubectl --namespace monitoring get pods -l "release=monitoring"
+
+Get Grafana 'admin' user password by running:
+
+  kubectl --namespace monitoring get secrets monitoring-grafana -o jsonpath="{.data.admin-password}" | base64 -d ; echo
+
+Access Grafana local instance:
+
+  export POD_NAME=$(kubectl --namespace monitoring get pod -l "app.kubernetes.io/name=grafana,app.kubernetes.io/instance=monitoring" -oname)
+  kubectl --namespace monitoring port-forward $POD_NAME 3000
+
+Get your grafana admin user password by running:
+
+  kubectl get secret --namespace monitoring -l app.kubernetes.io/component=admin-secret -o jsonpath="{.items[0].data.admin-password}" | base64 --decode ; echo
+
+
+Visit https://github.com/prometheus-operator/kube-prometheus for instructions on how to create & configure Alertmanager and Prometheus instances using the Operator.
+NAME                                                     READY   STATUS    RESTARTS   AGE
+alertmanager-monitoring-kube-prometheus-alertmanager-0   2/2     Running   0          38s
+monitoring-grafana-86c9985f8-bds5n                       3/3     Running   0          44s
+monitoring-kube-prometheus-operator-6b77dd6c5b-h4zqc     1/1     Running   0          44s
+monitoring-kube-state-metrics-7d94c4cbd8-lhf84           1/1     Running   0          44s
+monitoring-prometheus-node-exporter-mccls                1/1     Running   0          44s
+prometheus-monitoring-kube-prometheus-prometheus-0       2/2     Running   0          38s
+curl: (7) Failed to connect to localhost port 13000 after 0 ms: Could not connect to server
+{
+  "database": "ok",
+  "version": "13.3.1",
+  "commit": "da3aa3ff574e7dbbf808c66b6daa744defed0441"
+}[
+  {
+    "title": "Kubernetes / API server",
+    "url": "/d/09ec8aa1e996d6ffcd6817bbaff4db1b/kubernetes-api-server"
+  },
+  {
+    "title": "Kubernetes / Compute Resources /  Multi-Cluster",
+    "url": "/d/b59e6c9f2fcbe2e16d77fc492374cc4f/kubernetes-compute-resources-multi-cluster"
+  },
+  {
+    "title": "Kubernetes / Compute Resources / Cluster",
+    "url": "/d/efa86fd1d0c121a26444b636a3f509a8/kubernetes-compute-resources-cluster"
+  },
+  {
+    "title": "Kubernetes / Compute Resources / Namespace (Pods)",
+    "url": "/d/85a562078cdf77779eaa1add43ccec1e/kubernetes-compute-resources-namespace-pods"
+  },
+  {
+    "title": "Kubernetes / Compute Resources / Namespace (Workloads)",
+    "url": "/d/a87fb0d919ec0ea5f6543124e16c42a5/kubernetes-compute-resources-namespace-workloads"
+  },
+  {
+    "title": "Kubernetes / Compute Resources / Node (Pods)",
+    "url": "/d/200ac8fdbfbb74b39aff88118e4d1c2c/kubernetes-compute-resources-node-pods"
+  },
+  {
+    "title": "Kubernetes / Compute Resources / Nodes Overview",
+    "url": "/d/058020e04168bfdea0c52269cb699df2/kubernetes-compute-resources-nodes-overview"
+  },
+  {
+    "title": "Kubernetes / Compute Resources / Pod",
+    "url": "/d/6581e46e4e5c7ba40a07646395ef7b23/kubernetes-compute-resources-pod"
+  },
+  {
+    "title": "Kubernetes / Compute Resources / Workload",
+    "url": "/d/a164a7f0339f99e89cea5cb47e9be617/kubernetes-compute-resources-workload"
+  },
+  {
+    "title": "Kubernetes / Controller Manager",
+    "url": "/d/72e0e05bef5099e5f049b05fdc429ed4/kubernetes-controller-manager"
+  },
+  {
+    "title": "Kubernetes / Kubelet",
+    "url": "/d/3138fa155d5915769fbded898ac09fd9/kubernetes-kubelet"
+  },
+  {
+    "title": "Kubernetes / Networking / Cluster",
+    "url": "/d/ff635a025bcfea7bc3dd4f508990a3e9/kubernetes-networking-cluster"
+  },
+  {
+    "title": "Kubernetes / Networking / Namespace (Pods)",
+    "url": "/d/8b7a8b326d7a6f1f04244066368c67af/kubernetes-networking-namespace-pods"
+  },
+  {
+    "title": "Kubernetes / Networking / Namespace (Workload)",
+    "url": "/d/bbb2a765a623ae38130206c7d94a160f/kubernetes-networking-namespace-workload"
+  },
+  {
+    "title": "Kubernetes / Networking / Pod",
+    "url": "/d/7a18067ce943a40ae25454675c19ff5c/kubernetes-networking-pod"
+  },
+  {
+    "title": "Kubernetes / Networking / Workload",
+    "url": "/d/728bf77cc1166d2f3133bf25846876cc/kubernetes-networking-workload"
+  },
+  {
+    "title": "Kubernetes / Persistent Volumes",
+    "url": "/d/919b92a8e8041bd567af9edab12c840c/kubernetes-persistent-volumes"
+  },
+  {
+    "title": "Kubernetes / Proxy",
+    "url": "/d/632e265de029684c40b21cb76bca4f94/kubernetes-proxy"
+  },
+  {
+    "title": "Kubernetes / Scheduler",
+    "url": "/d/2e6b6a3b4bddf1427b3a55aa1311c656/kubernetes-scheduler"
+  }
+]
+pod/load created
+pod/load condition met
+NAME                        CPU(cores)   MEMORY(bytes)   
+guestbook-f847b946b-6m4k6   167m         28Mi            
+guestbook-f847b946b-9vs27   122m         28Mi            
+load                        755m         5Mi             
+redis-57d7f66958-8kkhz      21m          3Mi             
+{
+  "status": "success",
+  "data": {
+    "resultType": "vector",
+    "result": [
+      {
+        "metric": {
+          "pod": "guestbook-f847b946b-9vs27"
+        },
+        "value": [
+          1795427917.421,
+          "0.14520890520425542"
+        ]
+      },
+      {
+        "metric": {
+          "pod": "guestbook-f847b946b-6m4k6"
+        },
+        "value": [
+          1795427917.421,
+          "0.13733611757013162"
+        ]
+      }
+    ]
+  }
+}
+pod "load" deleted from week13 namespace
+[pod/guestbook-f847b946b-6m4k6/web] 10.244.0.34 - - [23/Nov/2026 09:59:07] "GET / HTTP/1.1" 200 -
+[pod/guestbook-f847b946b-6m4k6/web] 10.244.0.34 - - [23/Nov/2026 09:59:07] "GET / HTTP/1.1" 200 -
+[pod/guestbook-f847b946b-6m4k6/web] 10.244.0.34 - - [23/Nov/2026 09:59:07] "GET / HTTP/1.1" 200 -
+[pod/guestbook-f847b946b-6m4k6/web] 10.244.0.34 - - [23/Nov/2026 09:59:07] "GET / HTTP/1.1" 200 -
+[pod/guestbook-f847b946b-6m4k6/web] 10.244.0.34 - - [23/Nov/2026 09:59:07] "GET / HTTP/1.1" 200 -
+[pod/guestbook-f847b946b-9vs27/web] 10.244.0.34 - - [23/Nov/2026 09:59:07] "GET / HTTP/1.1" 200 -
+[pod/guestbook-f847b946b-9vs27/web] 10.244.0.34 - - [23/Nov/2026 09:59:07] "GET / HTTP/1.1" 200 -
+[pod/guestbook-f847b946b-9vs27/web] 10.244.0.34 - - [23/Nov/2026 09:59:07] "GET / HTTP/1.1" 200 -
+[pod/guestbook-f847b946b-9vs27/web] 10.244.0.34 - - [23/Nov/2026 09:59:07] "GET / HTTP/1.1" 200 -
+[pod/guestbook-f847b946b-9vs27/web] 10.244.0.34 - - [23/Nov/2026 09:59:07] "GET / HTTP/1.1" 200 -
+391df08 week13 : 새 이미지 배포
+efa26ac week13 : hello 삭제
+0f71cfa week13 : hello 추가
+4b6a26c Revert "week13 : Pod 4개"
+3d03eb7 week13 : Pod 4개
+5f3dda3 week13 : 시작 로그 확인 보완
+NAME        SYNC STATUS   HEALTH STATUS
+guestbook   Synced        Healthy
