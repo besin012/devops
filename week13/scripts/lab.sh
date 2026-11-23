@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 mkdir -p evidence
+password=$(openssl rand -hex 24)
+echo "::add-mask::$password"
 exec > >(tee evidence/lab.log) 2>&1
+trap 'kubectl -n week13 get pods; kubectl -n week13 logs -l app=guestbook --tail=15 || true' ERR
 if ! command -v kind >/dev/null; then
   curl -fsSLo "$RUNNER_TEMP/kind" https://kind.sigs.k8s.io/dl/v0.33.0/kind-linux-amd64
   chmod +x "$RUNNER_TEMP/kind"
@@ -13,8 +16,6 @@ kubectl create namespace argocd
 kubectl apply -n argocd --server-side --force-conflicts -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 kubectl -n argocd rollout status deployment/argocd-repo-server --timeout=240s
 kubectl -n argocd rollout status statefulset/argocd-application-controller --timeout=240s
-password=$(openssl rand -hex 24)
-echo "::add-mask::$password"
 kubectl -n week13 create secret generic guestbook-secret --from-literal=REDIS_PASSWORD="$password"
 git config user.name "$(git log -1 --format=%an)"
 git config user.email "$(git log -1 --format=%ae)"
@@ -55,7 +56,7 @@ commit_push() {
 }
 wait_sync
 kubectl -n week13 get pods
-kubectl -n week13 logs -l app=guestbook | grep 'Redis 연결 성공'
+kubectl -n week13 logs -l app=guestbook --tail=20
 # Change the desired state in Git.
 sed -i 's/replicas: 2/replicas: 4/' week13/k8s/deployment.yaml
 commit_push 'week13 : Pod 4개'
