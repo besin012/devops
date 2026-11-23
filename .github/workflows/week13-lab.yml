@@ -1,0 +1,24 @@
+name: Week 13 GitOps lab
+on:
+  push:
+    branches: [week13-lab-check]
+jobs:
+  lab:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: GitOps and monitoring lab
+        env:
+          IMAGE_TAG: 8113efe
+        run: bash week13/scripts/lab.sh
+      - name: Save evidence
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: week13-evidence
+          path: evidence/
